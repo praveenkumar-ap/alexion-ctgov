@@ -1,9 +1,12 @@
-# Configure AWS Provider
-provider "aws" {
-  region = var.aws_region
+terraform {
+  required_providers {
+    snowflake = {
+      source  = "Snowflake-Labs/snowflake"
+      version = "~> 0.100"
+    }
+  }
 }
 
-# Configure Snowflake Provider (used only at apply-time)
 provider "snowflake" {
   account  = var.snowflake_account
   user     = var.snowflake_user

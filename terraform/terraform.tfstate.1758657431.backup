@@ -1,0 +1,1243 @@
+{
+  "version": 4,
+  "terraform_version": "1.13.3",
+  "serial": 36,
+  "lineage": "08ee6d6c-cc25-b05f-6ef7-10f385e782bf",
+  "outputs": {
+    "dummy": {
+      "value": "demo",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "aws_caller_identity",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "account_id": "339924580661",
+            "arn": "arn:aws:iam::339924580661:user/prav",
+            "id": "339924580661",
+            "user_id": "AIDAU6JIVPE2ZHODLXM2O"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_region",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "US East (N. Virginia)",
+            "endpoint": "ec2.us-east-1.amazonaws.com",
+            "id": "us-east-1",
+            "name": "us-east-1"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_cloudwatch_event_rule",
+      "name": "monthly_schedule",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:events:us-east-1:339924580661:rule/ctgov-monthly-ingestion-dev",
+            "description": "Run every 2 hours on first Monday of month starting 00:00 UTC",
+            "event_bus_name": "default",
+            "event_pattern": null,
+            "force_destroy": false,
+            "id": "ctgov-monthly-ingestion-dev",
+            "is_enabled": true,
+            "name": "ctgov-monthly-ingestion-dev",
+            "name_prefix": "",
+            "role_arn": "",
+            "schedule_expression": "cron(0 0/2 ? * MON#1 *)",
+            "state": "ENABLED",
+            "tags": {},
+            "tags_all": {}
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_cloudwatch_event_target",
+      "name": "trigger_lambda",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "appsync_target": [],
+            "arn": "arn:aws:lambda:us-east-1:339924580661:function:ctgov-ingestion-dev",
+            "batch_target": [],
+            "dead_letter_config": [],
+            "ecs_target": [],
+            "event_bus_name": "default",
+            "force_destroy": false,
+            "http_target": [],
+            "id": "ctgov-monthly-ingestion-dev-CTGovLambda",
+            "input": "",
+            "input_path": "",
+            "input_transformer": [],
+            "kinesis_target": [],
+            "redshift_target": [],
+            "retry_policy": [],
+            "role_arn": "",
+            "rule": "ctgov-monthly-ingestion-dev",
+            "run_command_targets": [],
+            "sagemaker_pipeline_target": [],
+            "sqs_target": [],
+            "target_id": "CTGovLambda"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
+          "dependencies": [
+            "aws_cloudwatch_event_rule.monthly_schedule",
+            "aws_iam_role.lambda_exec_role",
+            "aws_iam_role_policy_attachment.lambda_basic_execution",
+            "aws_lambda_function.ctgov_ingestion",
+            "data.aws_caller_identity.current",
+            "data.aws_region.current",
+            "snowflake_database.ctgov",
+            "snowflake_schema.raw",
+            "snowflake_table.raw_ctgov_studies",
+            "snowflake_warehouse.transform_wh"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "lambda_exec_role",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::339924580661:role/ctgov-lambda-exec-role-dev",
+            "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
+            "create_date": "2025-09-22T17:58:06Z",
+            "description": "",
+            "force_detach_policies": false,
+            "id": "ctgov-lambda-exec-role-dev",
+            "inline_policy": [
+              {
+                "name": "terraform-20250923125202785000000001",
+                "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"secretsmanager:GetSecretValue\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:secretsmanager:us-east-1:339924580661:secret:ctgov/snowflake/ingestion-f6j3kT\"}]}"
+              }
+            ],
+            "managed_policy_arns": [
+              "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+            ],
+            "max_session_duration": 3600,
+            "name": "ctgov-lambda-exec-role-dev",
+            "name_prefix": "",
+            "path": "/",
+            "permissions_boundary": "",
+            "tags": {},
+            "tags_all": {},
+            "unique_id": "AROAU6JIVPE253R2RIIPQ"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy",
+      "name": "lambda_secrets_read",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "id": "ctgov-lambda-exec-role-dev:terraform-20250923125202785000000001",
+            "name": "terraform-20250923125202785000000001",
+            "name_prefix": "terraform-",
+            "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"secretsmanager:GetSecretValue\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:secretsmanager:us-east-1:339924580661:secret:ctgov/snowflake/ingestion-f6j3kT\"}]}",
+            "role": "ctgov-lambda-exec-role-dev"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.lambda_exec_role"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy_attachment",
+      "name": "lambda_basic_execution",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "ctgov-lambda-exec-role-dev-20250922175808262600000001",
+            "policy_arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+            "role": "ctgov-lambda-exec-role-dev"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.lambda_exec_role"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_lambda_function",
+      "name": "ctgov_ingestion",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "architectures": [
+              "arm64"
+            ],
+            "arn": "arn:aws:lambda:us-east-1:339924580661:function:ctgov-ingestion-dev",
+            "code_sha256": "e89e962d5fb38c0aa12ef3b8b56c17d26cbd9a8f0f77b6b750b6d10ecb227b63",
+            "code_signing_config_arn": "",
+            "dead_letter_config": [],
+            "description": "",
+            "environment": [
+              {
+                "variables": {
+                  "CTGOV_END_DATE": "MAX",
+                  "CTGOV_MAX_PAGES": "0",
+                  "CTGOV_PAGE_SIZE": "100",
+                  "CTGOV_START_DATE": "2015-01-01",
+                  "LOG_LEVEL": "INFO",
+                  "SINK": "snowflake",
+                  "SNOWFLAKE_DATABASE": "CLINICAL_TRIALS_DEV",
+                  "SNOWFLAKE_SCHEMA": "RAW",
+                  "SNOWFLAKE_SECRET_ARN": "arn:aws:secretsmanager:us-east-1:339924580661:secret:ctgov/snowflake/ingestion-f6j3kT",
+                  "SNOWFLAKE_TABLE": "RAW_CTGOV_STUDIES",
+                  "SNOWFLAKE_WAREHOUSE": "TRANSFORM_WH"
+                }
+              }
+            ],
+            "ephemeral_storage": [
+              {
+                "size": 512
+              }
+            ],
+            "file_system_config": [],
+            "filename": null,
+            "function_name": "ctgov-ingestion-dev",
+            "handler": "",
+            "id": "ctgov-ingestion-dev",
+            "image_config": [],
+            "image_uri": "339924580661.dkr.ecr.us-east-1.amazonaws.com/ctgov-ingestion:arm1",
+            "invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:339924580661:function:ctgov-ingestion-dev/invocations",
+            "kms_key_arn": "",
+            "last_modified": "2025-09-23T14:17:10.000+0000",
+            "layers": [],
+            "logging_config": [
+              {
+                "application_log_level": "",
+                "log_format": "Text",
+                "log_group": "/aws/lambda/ctgov-ingestion-dev",
+                "system_log_level": ""
+              }
+            ],
+            "memory_size": 512,
+            "package_type": "Image",
+            "publish": false,
+            "qualified_arn": "arn:aws:lambda:us-east-1:339924580661:function:ctgov-ingestion-dev:$LATEST",
+            "qualified_invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:339924580661:function:ctgov-ingestion-dev:$LATEST/invocations",
+            "replace_security_groups_on_destroy": null,
+            "replacement_security_group_ids": null,
+            "reserved_concurrent_executions": -1,
+            "role": "arn:aws:iam::339924580661:role/ctgov-lambda-exec-role-dev",
+            "runtime": "",
+            "s3_bucket": null,
+            "s3_key": null,
+            "s3_object_version": null,
+            "signing_job_arn": "",
+            "signing_profile_version_arn": "",
+            "skip_destroy": false,
+            "snap_start": [],
+            "source_code_hash": "",
+            "source_code_size": 0,
+            "tags": {},
+            "tags_all": {},
+            "timeout": 300,
+            "timeouts": null,
+            "tracing_config": [
+              {
+                "mode": "PassThrough"
+              }
+            ],
+            "version": "$LATEST",
+            "vpc_config": []
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_iam_role.lambda_exec_role",
+            "aws_iam_role_policy_attachment.lambda_basic_execution",
+            "data.aws_caller_identity.current",
+            "data.aws_region.current",
+            "snowflake_database.ctgov",
+            "snowflake_schema.raw",
+            "snowflake_table.raw_ctgov_studies",
+            "snowflake_warehouse.transform_wh"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_lambda_permission",
+      "name": "allow_eventbridge",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "action": "lambda:InvokeFunction",
+            "event_source_token": null,
+            "function_name": "ctgov-ingestion-dev",
+            "function_url_auth_type": null,
+            "id": "AllowExecutionFromEventBridge",
+            "principal": "events.amazonaws.com",
+            "principal_org_id": null,
+            "qualifier": "",
+            "source_account": null,
+            "source_arn": "arn:aws:events:us-east-1:339924580661:rule/ctgov-monthly-ingestion-dev",
+            "statement_id": "AllowExecutionFromEventBridge",
+            "statement_id_prefix": ""
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_cloudwatch_event_rule.monthly_schedule",
+            "aws_iam_role.lambda_exec_role",
+            "aws_iam_role_policy_attachment.lambda_basic_execution",
+            "aws_lambda_function.ctgov_ingestion",
+            "data.aws_caller_identity.current",
+            "data.aws_region.current",
+            "snowflake_database.ctgov",
+            "snowflake_schema.raw",
+            "snowflake_table.raw_ctgov_studies",
+            "snowflake_warehouse.transform_wh"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "snowflake_database",
+      "name": "ctgov",
+      "provider": "provider[\"registry.terraform.io/snowflake-labs/snowflake\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "catalog": "",
+            "comment": "ClinicalTrials.gov data database",
+            "data_retention_time_in_days": 1,
+            "default_ddl_collation": "",
+            "drop_public_schema_on_creation": null,
+            "enable_console_output": false,
+            "external_volume": "",
+            "fully_qualified_name": "\"CLINICAL_TRIALS_DEV\"",
+            "id": "CLINICAL_TRIALS_DEV",
+            "is_transient": false,
+            "log_level": "OFF",
+            "max_data_extension_time_in_days": 14,
+            "name": "CLINICAL_TRIALS_DEV",
+            "quoted_identifiers_ignore_case": false,
+            "replace_invalid_characters": false,
+            "replication": [],
+            "storage_serialization_policy": "OPTIMIZED",
+            "suspend_task_after_num_failures": 10,
+            "task_auto_retry_attempts": 0,
+            "trace_level": "OFF",
+            "user_task_managed_initial_warehouse_size": "Medium",
+            "user_task_minimum_trigger_interval_in_seconds": 30,
+            "user_task_timeout_ms": 3600000
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "snowflake_schema",
+      "name": "marts",
+      "provider": "provider[\"registry.terraform.io/snowflake-labs/snowflake\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "catalog": "",
+            "comment": "Mart data for business logic",
+            "data_retention_time_in_days": 1,
+            "database": "CLINICAL_TRIALS_DEV",
+            "default_ddl_collation": "",
+            "describe_output": [
+              {
+                "created_on": "2025-09-23 00:54:30.648 -0700 PDT",
+                "kind": "TABLE",
+                "name": "FCT_CLINICAL_TRIAL_EARLY_STOPS"
+              }
+            ],
+            "enable_console_output": false,
+            "external_volume": "",
+            "fully_qualified_name": "\"CLINICAL_TRIALS_DEV\".\"MARTS\"",
+            "id": "\"CLINICAL_TRIALS_DEV\".\"MARTS\"",
+            "is_transient": "default",
+            "log_level": "OFF",
+            "max_data_extension_time_in_days": 14,
+            "name": "MARTS",
+            "parameters": [
+              {
+                "catalog": [
+                  {
+                    "default": "",
+                    "description": "Name of the catalog integration to use for iceberg tables",
+                    "key": "CATALOG",
+                    "level": "",
+                    "value": ""
+                  }
+                ],
+                "data_retention_time_in_days": [
+                  {
+                    "default": "1",
+                    "description": "number of days to retain the old version of deleted/updated data",
+                    "key": "DATA_RETENTION_TIME_IN_DAYS",
+                    "level": "",
+                    "value": "1"
+                  }
+                ],
+                "default_ddl_collation": [
+                  {
+                    "default": "",
+                    "description": "Collation that is used for all the new columns created by the DDL statements (if not specified)",
+                    "key": "DEFAULT_DDL_COLLATION",
+                    "level": "",
+                    "value": ""
+                  }
+                ],
+                "enable_console_output": [
+                  {
+                    "default": "false",
+                    "description": "Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL).",
+                    "key": "ENABLE_CONSOLE_OUTPUT",
+                    "level": "",
+                    "value": "false"
+                  }
+                ],
+                "external_volume": [
+                  {
+                    "default": "",
+                    "description": "Name of an external volume that will be used for persisted Iceberg metadata and data files.",
+                    "key": "EXTERNAL_VOLUME",
+                    "level": "",
+                    "value": ""
+                  }
+                ],
+                "log_level": [
+                  {
+                    "default": "OFF",
+                    "description": "LOG_LEVEL to use when filtering events",
+                    "key": "LOG_LEVEL",
+                    "level": "",
+                    "value": "OFF"
+                  }
+                ],
+                "max_data_extension_time_in_days": [
+                  {
+                    "default": "14",
+                    "description": "Maximum number of days to extend data retention beyond the retention period to prevent a stream becoming stale.",
+                    "key": "MAX_DATA_EXTENSION_TIME_IN_DAYS",
+                    "level": "",
+                    "value": "14"
+                  }
+                ],
+                "pipe_execution_paused": [
+                  {
+                    "default": "false",
+                    "description": "Pause processing of files for a pipe",
+                    "key": "PIPE_EXECUTION_PAUSED",
+                    "level": "",
+                    "value": "false"
+                  }
+                ],
+                "quoted_identifiers_ignore_case": [
+                  {
+                    "default": "false",
+                    "description": "If true, the case of quoted identifiers is ignored",
+                    "key": "QUOTED_IDENTIFIERS_IGNORE_CASE",
+                    "level": "",
+                    "value": "false"
+                  }
+                ],
+                "replace_invalid_characters": [
+                  {
+                    "default": "false",
+                    "description": "Replace invalid UTF-8 characters found in Iceberg table external data files with the Unicode replacement character",
+                    "key": "REPLACE_INVALID_CHARACTERS",
+                    "level": "",
+                    "value": "false"
+                  }
+                ],
+                "storage_serialization_policy": [
+                  {
+                    "default": "OPTIMIZED",
+                    "description": "Storage serialization policy used for managed Iceberg table. This include encodings and compressions",
+                    "key": "STORAGE_SERIALIZATION_POLICY",
+                    "level": "",
+                    "value": "OPTIMIZED"
+                  }
+                ],
+                "suspend_task_after_num_failures": [
+                  {
+                    "default": "10",
+                    "description": "How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending.",
+                    "key": "SUSPEND_TASK_AFTER_NUM_FAILURES",
+                    "level": "",
+                    "value": "10"
+                  }
+                ],
+                "task_auto_retry_attempts": [
+                  {
+                    "default": "0",
+                    "description": "Maximum Automatic Retries Allowed For A User Task",
+                    "key": "TASK_AUTO_RETRY_ATTEMPTS",
+                    "level": "",
+                    "value": "0"
+                  }
+                ],
+                "trace_level": [
+                  {
+                    "default": "OFF",
+                    "description": "Trace level value to use when generating/filtering trace events",
+                    "key": "TRACE_LEVEL",
+                    "level": "",
+                    "value": "OFF"
+                  }
+                ],
+                "user_task_managed_initial_warehouse_size": [
+                  {
+                    "default": "Medium",
+                    "description": "The initial size of warehouse to use for managed warehouses in the absence of history",
+                    "key": "USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE",
+                    "level": "",
+                    "value": "Medium"
+                  }
+                ],
+                "user_task_minimum_trigger_interval_in_seconds": [
+                  {
+                    "default": "30",
+                    "description": "Minimum amount of time between Triggered Task executions in seconds",
+                    "key": "USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS",
+                    "level": "",
+                    "value": "30"
+                  }
+                ],
+                "user_task_timeout_ms": [
+                  {
+                    "default": "3600000",
+                    "description": "User task execution timeout in milliseconds",
+                    "key": "USER_TASK_TIMEOUT_MS",
+                    "level": "",
+                    "value": "3600000"
+                  }
+                ]
+              }
+            ],
+            "pipe_execution_paused": false,
+            "quoted_identifiers_ignore_case": false,
+            "replace_invalid_characters": false,
+            "show_output": [
+              {
+                "comment": "Mart data for business logic",
+                "created_on": "2025-09-22 10:54:14.043 -0700 PDT",
+                "database_name": "CLINICAL_TRIALS_DEV",
+                "dropped_on": "0001-01-01 00:00:00 +0000 UTC",
+                "is_current": false,
+                "is_default": false,
+                "name": "MARTS",
+                "options": "",
+                "owner": "SYSADMIN",
+                "owner_role_type": "ROLE",
+                "retention_time": "1"
+              }
+            ],
+            "storage_serialization_policy": "OPTIMIZED",
+            "suspend_task_after_num_failures": 10,
+            "task_auto_retry_attempts": 0,
+            "trace_level": "OFF",
+            "user_task_managed_initial_warehouse_size": "Medium",
+            "user_task_minimum_trigger_interval_in_seconds": 30,
+            "user_task_timeout_ms": 3600000,
+            "with_managed_access": "default"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "snowflake_database.ctgov"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "snowflake_schema",
+      "name": "raw",
+      "provider": "provider[\"registry.terraform.io/snowflake-labs/snowflake\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "catalog": "",
+            "comment": "Raw JSON data from API",
+            "data_retention_time_in_days": 1,
+            "database": "CLINICAL_TRIALS_DEV",
+            "default_ddl_collation": "",
+            "describe_output": [
+              {
+                "created_on": "2025-09-22 10:54:14.171 -0700 PDT",
+                "kind": "TABLE",
+                "name": "RAW_CTGOV_STUDIES"
+              }
+            ],
+            "enable_console_output": false,
+            "external_volume": "",
+            "fully_qualified_name": "\"CLINICAL_TRIALS_DEV\".\"RAW\"",
+            "id": "\"CLINICAL_TRIALS_DEV\".\"RAW\"",
+            "is_transient": "default",
+            "log_level": "OFF",
+            "max_data_extension_time_in_days": 14,
+            "name": "RAW",
+            "parameters": [
+              {
+                "catalog": [
+                  {
+                    "default": "",
+                    "description": "Name of the catalog integration to use for iceberg tables",
+                    "key": "CATALOG",
+                    "level": "",
+                    "value": ""
+                  }
+                ],
+                "data_retention_time_in_days": [
+                  {
+                    "default": "1",
+                    "description": "number of days to retain the old version of deleted/updated data",
+                    "key": "DATA_RETENTION_TIME_IN_DAYS",
+                    "level": "",
+                    "value": "1"
+                  }
+                ],
+                "default_ddl_collation": [
+                  {
+                    "default": "",
+                    "description": "Collation that is used for all the new columns created by the DDL statements (if not specified)",
+                    "key": "DEFAULT_DDL_COLLATION",
+                    "level": "",
+                    "value": ""
+                  }
+                ],
+                "enable_console_output": [
+                  {
+                    "default": "false",
+                    "description": "Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL).",
+                    "key": "ENABLE_CONSOLE_OUTPUT",
+                    "level": "",
+                    "value": "false"
+                  }
+                ],
+                "external_volume": [
+                  {
+                    "default": "",
+                    "description": "Name of an external volume that will be used for persisted Iceberg metadata and data files.",
+                    "key": "EXTERNAL_VOLUME",
+                    "level": "",
+                    "value": ""
+                  }
+                ],
+                "log_level": [
+                  {
+                    "default": "OFF",
+                    "description": "LOG_LEVEL to use when filtering events",
+                    "key": "LOG_LEVEL",
+                    "level": "",
+                    "value": "OFF"
+                  }
+                ],
+                "max_data_extension_time_in_days": [
+                  {
+                    "default": "14",
+                    "description": "Maximum number of days to extend data retention beyond the retention period to prevent a stream becoming stale.",
+                    "key": "MAX_DATA_EXTENSION_TIME_IN_DAYS",
+                    "level": "",
+                    "value": "14"
+                  }
+                ],
+                "pipe_execution_paused": [
+                  {
+                    "default": "false",
+                    "description": "Pause processing of files for a pipe",
+                    "key": "PIPE_EXECUTION_PAUSED",
+                    "level": "",
+                    "value": "false"
+                  }
+                ],
+                "quoted_identifiers_ignore_case": [
+                  {
+                    "default": "false",
+                    "description": "If true, the case of quoted identifiers is ignored",
+                    "key": "QUOTED_IDENTIFIERS_IGNORE_CASE",
+                    "level": "",
+                    "value": "false"
+                  }
+                ],
+                "replace_invalid_characters": [
+                  {
+                    "default": "false",
+                    "description": "Replace invalid UTF-8 characters found in Iceberg table external data files with the Unicode replacement character",
+                    "key": "REPLACE_INVALID_CHARACTERS",
+                    "level": "",
+                    "value": "false"
+                  }
+                ],
+                "storage_serialization_policy": [
+                  {
+                    "default": "OPTIMIZED",
+                    "description": "Storage serialization policy used for managed Iceberg table. This include encodings and compressions",
+                    "key": "STORAGE_SERIALIZATION_POLICY",
+                    "level": "",
+                    "value": "OPTIMIZED"
+                  }
+                ],
+                "suspend_task_after_num_failures": [
+                  {
+                    "default": "10",
+                    "description": "How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending.",
+                    "key": "SUSPEND_TASK_AFTER_NUM_FAILURES",
+                    "level": "",
+                    "value": "10"
+                  }
+                ],
+                "task_auto_retry_attempts": [
+                  {
+                    "default": "0",
+                    "description": "Maximum Automatic Retries Allowed For A User Task",
+                    "key": "TASK_AUTO_RETRY_ATTEMPTS",
+                    "level": "",
+                    "value": "0"
+                  }
+                ],
+                "trace_level": [
+                  {
+                    "default": "OFF",
+                    "description": "Trace level value to use when generating/filtering trace events",
+                    "key": "TRACE_LEVEL",
+                    "level": "",
+                    "value": "OFF"
+                  }
+                ],
+                "user_task_managed_initial_warehouse_size": [
+                  {
+                    "default": "Medium",
+                    "description": "The initial size of warehouse to use for managed warehouses in the absence of history",
+                    "key": "USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE",
+                    "level": "",
+                    "value": "Medium"
+                  }
+                ],
+                "user_task_minimum_trigger_interval_in_seconds": [
+                  {
+                    "default": "30",
+                    "description": "Minimum amount of time between Triggered Task executions in seconds",
+                    "key": "USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS",
+                    "level": "",
+                    "value": "30"
+                  }
+                ],
+                "user_task_timeout_ms": [
+                  {
+                    "default": "3600000",
+                    "description": "User task execution timeout in milliseconds",
+                    "key": "USER_TASK_TIMEOUT_MS",
+                    "level": "",
+                    "value": "3600000"
+                  }
+                ]
+              }
+            ],
+            "pipe_execution_paused": false,
+            "quoted_identifiers_ignore_case": false,
+            "replace_invalid_characters": false,
+            "show_output": [
+              {
+                "comment": "Raw JSON data from API",
+                "created_on": "2025-09-22 10:54:13.715 -0700 PDT",
+                "database_name": "CLINICAL_TRIALS_DEV",
+                "dropped_on": "0001-01-01 00:00:00 +0000 UTC",
+                "is_current": false,
+                "is_default": false,
+                "name": "RAW",
+                "options": "",
+                "owner": "SYSADMIN",
+                "owner_role_type": "ROLE",
+                "retention_time": "1"
+              }
+            ],
+            "storage_serialization_policy": "OPTIMIZED",
+            "suspend_task_after_num_failures": 10,
+            "task_auto_retry_attempts": 0,
+            "trace_level": "OFF",
+            "user_task_managed_initial_warehouse_size": "Medium",
+            "user_task_minimum_trigger_interval_in_seconds": 30,
+            "user_task_timeout_ms": 3600000,
+            "with_managed_access": "default"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "snowflake_database.ctgov"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "snowflake_schema",
+      "name": "staging",
+      "provider": "provider[\"registry.terraform.io/snowflake-labs/snowflake\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "catalog": "",
+            "comment": "Staging data for dbt",
+            "data_retention_time_in_days": 1,
+            "database": "CLINICAL_TRIALS_DEV",
+            "default_ddl_collation": "",
+            "describe_output": [
+              {
+                "created_on": "2025-09-23 00:54:28.025 -0700 PDT",
+                "kind": "VIEW",
+                "name": "STG_CTGOV_STUDIES"
+              }
+            ],
+            "enable_console_output": false,
+            "external_volume": "",
+            "fully_qualified_name": "\"CLINICAL_TRIALS_DEV\".\"STAGING\"",
+            "id": "\"CLINICAL_TRIALS_DEV\".\"STAGING\"",
+            "is_transient": "default",
+            "log_level": "OFF",
+            "max_data_extension_time_in_days": 14,
+            "name": "STAGING",
+            "parameters": [
+              {
+                "catalog": [
+                  {
+                    "default": "",
+                    "description": "Name of the catalog integration to use for iceberg tables",
+                    "key": "CATALOG",
+                    "level": "",
+                    "value": ""
+                  }
+                ],
+                "data_retention_time_in_days": [
+                  {
+                    "default": "1",
+                    "description": "number of days to retain the old version of deleted/updated data",
+                    "key": "DATA_RETENTION_TIME_IN_DAYS",
+                    "level": "",
+                    "value": "1"
+                  }
+                ],
+                "default_ddl_collation": [
+                  {
+                    "default": "",
+                    "description": "Collation that is used for all the new columns created by the DDL statements (if not specified)",
+                    "key": "DEFAULT_DDL_COLLATION",
+                    "level": "",
+                    "value": ""
+                  }
+                ],
+                "enable_console_output": [
+                  {
+                    "default": "false",
+                    "description": "Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL).",
+                    "key": "ENABLE_CONSOLE_OUTPUT",
+                    "level": "",
+                    "value": "false"
+                  }
+                ],
+                "external_volume": [
+                  {
+                    "default": "",
+                    "description": "Name of an external volume that will be used for persisted Iceberg metadata and data files.",
+                    "key": "EXTERNAL_VOLUME",
+                    "level": "",
+                    "value": ""
+                  }
+                ],
+                "log_level": [
+                  {
+                    "default": "OFF",
+                    "description": "LOG_LEVEL to use when filtering events",
+                    "key": "LOG_LEVEL",
+                    "level": "",
+                    "value": "OFF"
+                  }
+                ],
+                "max_data_extension_time_in_days": [
+                  {
+                    "default": "14",
+                    "description": "Maximum number of days to extend data retention beyond the retention period to prevent a stream becoming stale.",
+                    "key": "MAX_DATA_EXTENSION_TIME_IN_DAYS",
+                    "level": "",
+                    "value": "14"
+                  }
+                ],
+                "pipe_execution_paused": [
+                  {
+                    "default": "false",
+                    "description": "Pause processing of files for a pipe",
+                    "key": "PIPE_EXECUTION_PAUSED",
+                    "level": "",
+                    "value": "false"
+                  }
+                ],
+                "quoted_identifiers_ignore_case": [
+                  {
+                    "default": "false",
+                    "description": "If true, the case of quoted identifiers is ignored",
+                    "key": "QUOTED_IDENTIFIERS_IGNORE_CASE",
+                    "level": "",
+                    "value": "false"
+                  }
+                ],
+                "replace_invalid_characters": [
+                  {
+                    "default": "false",
+                    "description": "Replace invalid UTF-8 characters found in Iceberg table external data files with the Unicode replacement character",
+                    "key": "REPLACE_INVALID_CHARACTERS",
+                    "level": "",
+                    "value": "false"
+                  }
+                ],
+                "storage_serialization_policy": [
+                  {
+                    "default": "OPTIMIZED",
+                    "description": "Storage serialization policy used for managed Iceberg table. This include encodings and compressions",
+                    "key": "STORAGE_SERIALIZATION_POLICY",
+                    "level": "",
+                    "value": "OPTIMIZED"
+                  }
+                ],
+                "suspend_task_after_num_failures": [
+                  {
+                    "default": "10",
+                    "description": "How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending.",
+                    "key": "SUSPEND_TASK_AFTER_NUM_FAILURES",
+                    "level": "",
+                    "value": "10"
+                  }
+                ],
+                "task_auto_retry_attempts": [
+                  {
+                    "default": "0",
+                    "description": "Maximum Automatic Retries Allowed For A User Task",
+                    "key": "TASK_AUTO_RETRY_ATTEMPTS",
+                    "level": "",
+                    "value": "0"
+                  }
+                ],
+                "trace_level": [
+                  {
+                    "default": "OFF",
+                    "description": "Trace level value to use when generating/filtering trace events",
+                    "key": "TRACE_LEVEL",
+                    "level": "",
+                    "value": "OFF"
+                  }
+                ],
+                "user_task_managed_initial_warehouse_size": [
+                  {
+                    "default": "Medium",
+                    "description": "The initial size of warehouse to use for managed warehouses in the absence of history",
+                    "key": "USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE",
+                    "level": "",
+                    "value": "Medium"
+                  }
+                ],
+                "user_task_minimum_trigger_interval_in_seconds": [
+                  {
+                    "default": "30",
+                    "description": "Minimum amount of time between Triggered Task executions in seconds",
+                    "key": "USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS",
+                    "level": "",
+                    "value": "30"
+                  }
+                ],
+                "user_task_timeout_ms": [
+                  {
+                    "default": "3600000",
+                    "description": "User task execution timeout in milliseconds",
+                    "key": "USER_TASK_TIMEOUT_MS",
+                    "level": "",
+                    "value": "3600000"
+                  }
+                ]
+              }
+            ],
+            "pipe_execution_paused": false,
+            "quoted_identifiers_ignore_case": false,
+            "replace_invalid_characters": false,
+            "show_output": [
+              {
+                "comment": "Staging data for dbt",
+                "created_on": "2025-09-22 10:54:13.616 -0700 PDT",
+                "database_name": "CLINICAL_TRIALS_DEV",
+                "dropped_on": "0001-01-01 00:00:00 +0000 UTC",
+                "is_current": false,
+                "is_default": false,
+                "name": "STAGING",
+                "options": "",
+                "owner": "SYSADMIN",
+                "owner_role_type": "ROLE",
+                "retention_time": "1"
+              }
+            ],
+            "storage_serialization_policy": "OPTIMIZED",
+            "suspend_task_after_num_failures": 10,
+            "task_auto_retry_attempts": 0,
+            "trace_level": "OFF",
+            "user_task_managed_initial_warehouse_size": "Medium",
+            "user_task_minimum_trigger_interval_in_seconds": 30,
+            "user_task_timeout_ms": 3600000,
+            "with_managed_access": "default"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "snowflake_database.ctgov"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "snowflake_table",
+      "name": "raw_ctgov_studies",
+      "provider": "provider[\"registry.terraform.io/snowflake-labs/snowflake\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "change_tracking": false,
+            "cluster_by": [],
+            "column": [
+              {
+                "collate": "",
+                "comment": "",
+                "default": [],
+                "identity": [],
+                "masking_policy": "",
+                "name": "RAW_DATA",
+                "nullable": true,
+                "schema_evolution_record": "",
+                "type": "VARIANT"
+              },
+              {
+                "collate": "",
+                "comment": "",
+                "default": [],
+                "identity": [],
+                "masking_policy": "",
+                "name": "INGESTION_TIMESTAMP",
+                "nullable": true,
+                "schema_evolution_record": "",
+                "type": "TIMESTAMP_NTZ(9)"
+              },
+              {
+                "collate": "",
+                "comment": "",
+                "default": [],
+                "identity": [],
+                "masking_policy": "",
+                "name": "BATCH_ID",
+                "nullable": true,
+                "schema_evolution_record": "",
+                "type": "VARCHAR(50)"
+              }
+            ],
+            "comment": "",
+            "data_retention_time_in_days": -1,
+            "database": "CLINICAL_TRIALS_DEV",
+            "fully_qualified_name": "\"CLINICAL_TRIALS_DEV\".\"RAW\".\"RAW_CTGOV_STUDIES\"",
+            "id": "CLINICAL_TRIALS_DEV|RAW|RAW_CTGOV_STUDIES",
+            "name": "RAW_CTGOV_STUDIES",
+            "owner": "SYSADMIN",
+            "primary_key": [],
+            "schema": "RAW",
+            "tag": []
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "snowflake_database.ctgov",
+            "snowflake_schema.raw"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "snowflake_warehouse",
+      "name": "transform_wh",
+      "provider": "provider[\"registry.terraform.io/snowflake-labs/snowflake\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "auto_resume": "default",
+            "auto_suspend": 60,
+            "comment": "",
+            "enable_query_acceleration": "default",
+            "fully_qualified_name": "\"TRANSFORM_WH\"",
+            "id": "TRANSFORM_WH",
+            "initially_suspended": null,
+            "max_cluster_count": null,
+            "max_concurrency_level": 8,
+            "min_cluster_count": null,
+            "name": "TRANSFORM_WH",
+            "parameters": [
+              {
+                "max_concurrency_level": [
+                  {
+                    "default": "8",
+                    "description": "Maximum number of SQL statements a warehouse cluster can execute concurrently before queuing them. Small SQL statements count as a fraction of 1.",
+                    "key": "MAX_CONCURRENCY_LEVEL",
+                    "level": "",
+                    "value": "8"
+                  }
+                ],
+                "statement_queued_timeout_in_seconds": [
+                  {
+                    "default": "0",
+                    "description": "Timeout in seconds for queued statements: statements will automatically be canceled if they are queued on a warehouse for longer than this amount of time; disabled if set to zero.",
+                    "key": "STATEMENT_QUEUED_TIMEOUT_IN_SECONDS",
+                    "level": "",
+                    "value": "0"
+                  }
+                ],
+                "statement_timeout_in_seconds": [
+                  {
+                    "default": "172800",
+                    "description": "Timeout in seconds for statements: statements are automatically canceled if they run for longer; if set to zero, max value (604800) is enforced.",
+                    "key": "STATEMENT_TIMEOUT_IN_SECONDS",
+                    "level": "",
+                    "value": "172800"
+                  }
+                ]
+              }
+            ],
+            "query_acceleration_max_scale_factor": -1,
+            "resource_monitor": null,
+            "scaling_policy": null,
+            "show_output": [
+              {
+                "auto_resume": true,
+                "auto_suspend": 60,
+                "available": 0,
+                "comment": "",
+                "created_on": "2025-09-22 10:54:12.92 -0700 PDT",
+                "enable_query_acceleration": false,
+                "is_current": false,
+                "is_default": false,
+                "max_cluster_count": 1,
+                "min_cluster_count": 1,
+                "name": "TRANSFORM_WH",
+                "other": 0,
+                "owner": "SYSADMIN",
+                "owner_role_type": "ROLE",
+                "provisioning": 0,
+                "query_acceleration_max_scale_factor": 8,
+                "queued": 0,
+                "quiescing": 0,
+                "resource_monitor": "",
+                "resumed_on": "2025-09-23 00:54:27.706 -0700 PDT",
+                "running": 0,
+                "scaling_policy": "STANDARD",
+                "size": "XSMALL",
+                "started_clusters": 0,
+                "state": "SUSPENDED",
+                "type": "STANDARD",
+                "updated_on": "2025-09-23 00:54:27.706 -0700 PDT"
+              }
+            ],
+            "statement_queued_timeout_in_seconds": 0,
+            "statement_timeout_in_seconds": 172800,
+            "warehouse_size": "X-SMALL",
+            "warehouse_type": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    }
+  ],
+  "check_results": [
+    {
+      "object_kind": "var",
+      "config_addr": "var.snowflake_secret_arn",
+      "status": "pass",
+      "objects": [
+        {
+          "object_addr": "var.snowflake_secret_arn",
+          "status": "pass"
+        }
+      ]
+    }
+  ]
+}
