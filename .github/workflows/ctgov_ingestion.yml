@@ -1,63 +1,53 @@
 name: CTGov Ingestion Pipeline
 
 on:
-  workflow_dispatch: {}   # manual button in Actions
+  # Manual trigger
+  workflow_dispatch:
+  # Scheduled trigger (first Monday of every month, every 2 hours UTC)
+  schedule:
+    - cron: "0 */2 ? * MON#1 *"
 
 jobs:
-  run-ingestion-and-dbt:
+  ingest:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-    env:
-      # Snowflake (from repo secrets)
-      SNOWFLAKE_ACCOUNT:   ${{ secrets.SNOWFLAKE_ACCOUNT }}
-      SNOWFLAKE_USER:      ${{ secrets.SNOWFLAKE_USER }}
-      SNOWFLAKE_PASSWORD:  ${{ secrets.SNOWFLAKE_PASSWORD }}
-      SNOWFLAKE_ROLE:      SYSADMIN
-      SNOWFLAKE_DATABASE:  CLINICAL_TRIALS_DEV
-      SNOWFLAKE_WAREHOUSE: TRANSFORM_WH
-      SNOWFLAKE_SCHEMA:    RAW                  # used by the Python ingestor
-      SNOWFLAKE_STAGING_SCHEMA: STAGING         # used by dbt
-
-      # Ingestion knobs (feel free to tweak for a quick demo)
-      SINK:                snowflake
-      CTGOV_PAGE_SIZE:     "50"
-      CTGOV_MAX_PAGES:     "1"    # 1 page for fast demo
-      CTGOV_MAX_RECORDS:   "0"
-      CTGOV_START_DATE:    "2015-01-01"
-      CTGOV_END_DATE:      "MAX"
-      LOG_LEVEL:           "INFO"
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: "3.10"
 
-      - name: Install ingestion deps
+      - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
           pip install -r ingestion/requirements.txt
+          pip install dbt-snowflake
 
-      - name: Run ingestion (RAW layer)
+      - name: Run ingestion script
+        env:
+          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+          SNOWFLAKE_DATABASE: CLINICAL_TRIALS_DEV
+          SNOWFLAKE_SCHEMA: RAW
+          SNOWFLAKE_WAREHOUSE: TRANSFORM_WH
+          SNOWFLAKE_ROLE: SYSADMIN
+          SINK: snowflake
         run: |
-          echo "Connecting to Snowflake account: $SNOWFLAKE_ACCOUNT"
-          python -u ingestion/clinical_trials_api.py
+          source venv/bin/activate
+          python ingestion/clinical_trials_api.py
 
-      - name: Install dbt
-        run: |
-          pip install "dbt-core==1.8.9" "dbt-snowflake==1.8.4"
-
-      - name: dbt debug (optional but helpful)
-        working-directory: dbt
+      - name: Run dbt models
         env:
           DBT_PROFILES_DIR: ${{ github.workspace }}/dbt
-        run: dbt debug --target prod --no-write-json
-
-      - name: Run dbt build (STAGING + MARTS + tests)
-        working-directory: dbt
-        env:
-          DBT_PROFILES_DIR: ${{ github.workspace }}/dbt
-        run: dbt build --target prod --no-write-json
+        run: |
+          source venv/bin/activate
+          cd dbt
+          dbt deps
+          dbt run
+          dbt test
