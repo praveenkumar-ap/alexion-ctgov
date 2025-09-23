@@ -11,9 +11,11 @@ final as (
     RAW_DATA:"protocolSection":"identificationModule":"briefTitle"::string  as brief_title,
     RAW_DATA:"protocolSection":"statusModule":"overallStatus"::string       as latest_overall_status,
     coalesce(
-      RAW_DATA:"protocolSection":"statusModule":"studyFirstSubmitDateStruct":"date"::date,
-      RAW_DATA:"protocolSection":"statusModule":"studyFirstSubmitDate"::date
-    )                                                                       as first_submitted_date,
+    try_to_date(RAW_DATA:"protocolSection":"statusModule":"studyFirstSubmitDateStruct":"date"::string),
+    try_to_date(RAW_DATA:"protocolSection":"statusModule":"studyFirstSubmitDate"::string),
+    try_to_date(RAW_DATA:"protocolSection":"statusModule":"firstSubmittedDateStruct":"date"::string),
+    try_to_date(RAW_DATA:"protocolSection":"statusModule":"firstSubmittedDate"::string)
+    ) as first_submitted_date,
     RAW_DATA:"protocolSection":"designModule":"studyType"::string           as study_type,
 
     CASE
@@ -22,17 +24,15 @@ final as (
       WHEN TYPEOF(RAW_DATA:"protocolSection":"designModule":"phases") = 'VARCHAR'
         THEN RAW_DATA:"protocolSection":"designModule":"phases"::string
       ELSE NULL
-    END                                                                     as phases,
+    END as phases,
 
     coalesce(
       RAW_DATA:"protocolSection":"sponsorCollaboratorsModule":"leadSponsor":"class"::string,
       RAW_DATA:"protocolSection":"sponsorCollaboratorsModule":"leadSponsor":"agencyClass"::string
-    )                                                                       as sponsor_class,
+    )as sponsor_class,
 
-    RAW_DATA:"hasResults"::boolean                                          as has_results,
+    RAW_DATA:"hasResults"::boolean as has_results,
     INGESTION_TIMESTAMP,
     BATCH_ID
   from src
 )
-
-select * from final
