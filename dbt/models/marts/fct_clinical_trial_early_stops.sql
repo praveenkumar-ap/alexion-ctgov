@@ -27,4 +27,4 @@ select
   end                                                     as early_stop_rate
 from flags
 group by 1
-order by 1;
+order by 1
