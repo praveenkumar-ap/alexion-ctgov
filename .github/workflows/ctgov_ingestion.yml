@@ -1,11 +1,10 @@
 name: CTGov Ingestion Pipeline
-
 on:
   # Manual trigger
   workflow_dispatch:
   # Scheduled trigger (first Monday of every month, every 2 hours UTC)
   schedule:
-    - cron: "0 */2 ? * MON#1 *"
+    - cron: "0 0-22/2 1-7 * 1"
 
 jobs:
   ingest:
