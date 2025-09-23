@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: fct_clinical_trial_early_stops
+    description: "Per sponsor_class: early-stop count, closed count, early-stop rate."
+    columns:
+      - name: sponsor_class
+        tests: [not_null]
+      - name: early_stop_rate
+        tests: [ctgov_between_0_1]

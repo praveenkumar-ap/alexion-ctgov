@@ -1,0 +1,38 @@
+# OS / editor
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.* 
+*.log
+
+# Ingestion artifacts
+artifacts/
+build/
+*.zip
+
+# dbt
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+crash.log
+terraform.tfvars
+*.auto.tfvars
+.terraform/
+.terraform.lock.hcl
+
+# Other
+*.ipynb_checkpoints
+secrets/

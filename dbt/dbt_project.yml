@@ -1,0 +1,19 @@
+name: ctgov
+version: "1.0.0"
+config-version: 2
+profile: ctgov
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+
+models:
+  ctgov:
+    +persist_docs:
+      relation: true
+      columns: true
+    staging:
+      +schema: "STAGING"
+      +materialized: view
+    marts:
+      +schema: "MARTS"
+      +materialized: table
