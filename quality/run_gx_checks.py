@@ -50,14 +50,10 @@ def connect_snowflake():
 
 def read_df(cur, sql: str) -> pd.DataFrame:
     cur.execute(sql)
-    try:
-        # Native Snowflake -> pandas fetch
-        return cur.fetch_pandas_all()
-    except AttributeError:
-        # Fallback (older connector): build DataFrame manually
-        rows = cur.fetchall()
-        cols = [d[0] for d in cur.description]
-        return pd.DataFrame.from_records(rows, columns=cols)
+    rows = cur.fetchall()
+    cols = [d[0] for d in cur.description]
+    return pd.DataFrame.from_records(rows, columns=cols)
+
 
 
 def summarize_result(tag: str, result) -> bool:
