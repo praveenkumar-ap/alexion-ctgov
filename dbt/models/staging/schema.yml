@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_ctgov_studies
+    description: "Flattened CTGov v2 studies: one row per study (NCT). Source is RAW.RAW_CTGOV_STUDIES."
+    columns:
+      - name: nct_id
+        description: "ClinicalTrials.gov NCT identifier."
+        tests: [not_null]
+      - name: brief_title
+        description: "Short study title."
+      - name: latest_overall_status
+        description: "Latest overall recruitment status."
+      - name: first_submitted_date
+        description: "Original StudyFirstSubmitDate (coalesced from structured/legacy fields)."
+      - name: study_type
+        description: "Study type (INTERVENTIONAL for this pipeline)."
+      - name: phases
+        description: "Study phases (flattened array; e.g. 'PHASE2,PHASE3')."
+      - name: sponsor_class
+        description: "Lead sponsor class (Industry/NIH/… as provided by CTGov)."
+      - name: has_results
+        description: "Whether results are posted."

@@ -1,0 +1,1180 @@
+[0m12:52:41.552243 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e64a510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110f07ed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110f07d90>]}
+
+
+============================== 12:52:41.557940 | 0ed5cee5-4085-4c1a-9928-9b4140cc04d7 ==============================
+[0m12:52:41.557940 [info ] [MainThread]: Running with dbt=1.8.9
+[0m12:52:41.558673 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m12:52:41.568361 [info ] [MainThread]: dbt version: 1.8.9
+[0m12:52:41.569059 [info ] [MainThread]: python version: 3.13.0
+[0m12:52:41.569657 [info ] [MainThread]: python path: /Users/praveen/miniconda3/envs/myenv/bin/python
+[0m12:52:41.570012 [info ] [MainThread]: os info: macOS-10.16-x86_64-i386-64bit-Mach-O
+[0m12:52:41.571798 [info ] [MainThread]: Using profiles dir at /Users/praveen/alexion-ctgov/dbt
+[0m12:52:41.572224 [info ] [MainThread]: Using profiles.yml file at /Users/praveen/alexion-ctgov/dbt/profiles.yml
+[0m12:52:41.572536 [info ] [MainThread]: Using dbt_project.yml file at /Users/praveen/alexion-ctgov/dbt/dbt_project.yml
+[0m12:52:41.655621 [info ] [MainThread]: Configuration:
+[0m12:52:41.656089 [info ] [MainThread]:   profiles.yml file [[31mERROR invalid[0m]
+[0m12:52:41.656399 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m12:52:41.656694 [info ] [MainThread]: Required dependencies:
+[0m12:52:41.657055 [debug] [MainThread]: Executing "git --help"
+[0m12:52:41.679965 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m12:52:41.681074 [debug] [MainThread]: STDERR: "b''"
+[0m12:52:41.681499 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m12:52:41.681864 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m12:52:41.682184 [info ] [MainThread]: [31m1 check failed:[0m
+[0m12:52:41.682476 [info ] [MainThread]: Could not load dbt_project.yml
+Profile loading failed for the following reason:
+Runtime Error
+  
+  dbt encountered an error while trying to read your profiles.yml file.
+  
+  Profile ctgov_profile in profiles.yml is empty
+  
+
+
+[0m12:52:41.696760 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.23521613, "process_in_blocks": "0", "process_kernel_time": 0.147254, "process_mem_max_rss": "108015616", "process_out_blocks": "0", "process_user_time": 1.408638}
+[0m12:52:41.697647 [debug] [MainThread]: Command `dbt debug` failed at 12:52:41.697305 after 0.24 seconds
+[0m12:52:41.698226 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fb7e190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11103bad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110ff29c0>]}
+[0m12:52:41.698711 [debug] [MainThread]: Flushing usage events
+[0m12:57:35.854844 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be26510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e6dfed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e6dfd90>]}
+
+
+============================== 12:57:35.860494 | ed3f710a-7ea4-4607-bd8b-8f59fca25149 ==============================
+[0m12:57:35.860494 [info ] [MainThread]: Running with dbt=1.8.9
+[0m12:57:35.861220 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt debug', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m12:57:35.870439 [info ] [MainThread]: dbt version: 1.8.9
+[0m12:57:35.870956 [info ] [MainThread]: python version: 3.13.0
+[0m12:57:35.871691 [info ] [MainThread]: python path: /Users/praveen/miniconda3/envs/myenv/bin/python
+[0m12:57:35.872430 [info ] [MainThread]: os info: macOS-10.16-x86_64-i386-64bit-Mach-O
+[0m12:57:36.604325 [info ] [MainThread]: Using profiles dir at /Users/praveen/alexion-ctgov/dbt
+[0m12:57:36.604810 [info ] [MainThread]: Using profiles.yml file at /Users/praveen/alexion-ctgov/dbt/profiles.yml
+[0m12:57:36.605136 [info ] [MainThread]: Using dbt_project.yml file at /Users/praveen/alexion-ctgov/dbt/dbt_project.yml
+[0m12:57:36.605612 [info ] [MainThread]: adapter type: snowflake
+[0m12:57:36.605922 [info ] [MainThread]: adapter version: 1.8.4
+[0m12:57:36.610477 [info ] [MainThread]: Configuration:
+[0m12:57:36.610832 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m12:57:36.611353 [info ] [MainThread]:   dbt_project.yml file [[31mERROR invalid[0m]
+[0m12:57:36.611749 [info ] [MainThread]: Required dependencies:
+[0m12:57:36.612133 [debug] [MainThread]: Executing "git --help"
+[0m12:57:36.629338 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m12:57:36.630504 [debug] [MainThread]: STDERR: "b''"
+[0m12:57:36.630912 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m12:57:36.631286 [info ] [MainThread]: Connection:
+[0m12:57:36.631634 [info ] [MainThread]:   account: WCOFXCF-NO82177
+[0m12:57:36.631928 [info ] [MainThread]:   user: PRAVEENSETUP96
+[0m12:57:36.632211 [info ] [MainThread]:   database: CLINICAL_TRIALS_DEV
+[0m12:57:36.632481 [info ] [MainThread]:   warehouse: TRANSFORM_WH
+[0m12:57:36.632747 [info ] [MainThread]:   role: ACCOUNTADMIN
+[0m12:57:36.633045 [info ] [MainThread]:   schema: RAW
+[0m12:57:36.633331 [info ] [MainThread]:   authenticator: None
+[0m12:57:36.633617 [info ] [MainThread]:   oauth_client_id: None
+[0m12:57:36.633875 [info ] [MainThread]:   query_tag: None
+[0m12:57:36.634170 [info ] [MainThread]:   client_session_keep_alive: False
+[0m12:57:36.634450 [info ] [MainThread]:   host: None
+[0m12:57:36.634730 [info ] [MainThread]:   port: None
+[0m12:57:36.634989 [info ] [MainThread]:   proxy_host: None
+[0m12:57:36.635242 [info ] [MainThread]:   proxy_port: None
+[0m12:57:36.635503 [info ] [MainThread]:   protocol: None
+[0m12:57:36.635757 [info ] [MainThread]:   connect_retries: 1
+[0m12:57:36.636021 [info ] [MainThread]:   connect_timeout: None
+[0m12:57:36.636400 [info ] [MainThread]:   retry_on_database_errors: False
+[0m12:57:36.636814 [info ] [MainThread]:   retry_all: False
+[0m12:57:36.637124 [info ] [MainThread]:   insecure_mode: False
+[0m12:57:36.637415 [info ] [MainThread]:   reuse_connections: None
+[0m12:57:36.638186 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m12:57:36.768176 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m12:57:36.769575 [debug] [MainThread]: Using snowflake connection "debug"
+[0m12:57:36.769948 [debug] [MainThread]: On debug: select 1 as id
+[0m12:57:36.770264 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m12:57:38.606063 [debug] [MainThread]: SQL status: SUCCESS 1 in 1.835 seconds
+[0m12:57:38.609272 [debug] [MainThread]: On debug: Close
+[0m12:57:38.774707 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m12:57:38.775932 [info ] [MainThread]: [31m1 check failed:[0m
+[0m12:57:38.776560 [info ] [MainThread]: Project loading failed for the following reason:
+Runtime Error
+  Required "name" field not present in project
+
+Error encountered in /Users/praveen/alexion-ctgov/dbt/dbt_project.yml
+
+
+[0m12:57:38.786847 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 3.023129, "process_in_blocks": "0", "process_kernel_time": 0.379654, "process_mem_max_rss": "197619712", "process_out_blocks": "0", "process_user_time": 2.260947}
+[0m12:57:38.788595 [debug] [MainThread]: Command `dbt debug` failed at 12:57:38.788101 after 3.02 seconds
+[0m12:57:38.789397 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m12:57:38.789980 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x116a95f30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1169be570>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1166db680>]}
+[0m12:57:38.790633 [debug] [MainThread]: Flushing usage events
+[0m12:59:02.865777 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1107ce510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11308bed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11308bd90>]}
+
+
+============================== 12:59:02.871601 | 2eaba0b1-3f1a-42c3-a31d-89df628378fc ==============================
+[0m12:59:02.871601 [info ] [MainThread]: Running with dbt=1.8.9
+[0m12:59:02.872350 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m12:59:02.882180 [info ] [MainThread]: dbt version: 1.8.9
+[0m12:59:02.883045 [info ] [MainThread]: python version: 3.13.0
+[0m12:59:02.883425 [info ] [MainThread]: python path: /Users/praveen/miniconda3/envs/myenv/bin/python
+[0m12:59:02.883742 [info ] [MainThread]: os info: macOS-10.16-x86_64-i386-64bit-Mach-O
+[0m12:59:03.622928 [info ] [MainThread]: Using profiles dir at /Users/praveen/alexion-ctgov/dbt
+[0m12:59:03.623425 [info ] [MainThread]: Using profiles.yml file at /Users/praveen/alexion-ctgov/dbt/profiles.yml
+[0m12:59:03.623767 [info ] [MainThread]: Using dbt_project.yml file at /Users/praveen/alexion-ctgov/dbt/dbt_project.yml
+[0m12:59:03.624249 [info ] [MainThread]: adapter type: snowflake
+[0m12:59:03.624583 [info ] [MainThread]: adapter version: 1.8.4
+[0m12:59:03.629243 [info ] [MainThread]: Configuration:
+[0m12:59:03.629656 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m12:59:03.630082 [info ] [MainThread]:   dbt_project.yml file [[31mERROR invalid[0m]
+[0m12:59:03.630527 [info ] [MainThread]: Required dependencies:
+[0m12:59:03.630940 [debug] [MainThread]: Executing "git --help"
+[0m12:59:03.648326 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m12:59:03.649411 [debug] [MainThread]: STDERR: "b''"
+[0m12:59:03.649851 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m12:59:03.650239 [info ] [MainThread]: Connection:
+[0m12:59:03.650588 [info ] [MainThread]:   account: WCOFXCF-NO82177
+[0m12:59:03.650914 [info ] [MainThread]:   user: PRAVEENSETUP96
+[0m12:59:03.651212 [info ] [MainThread]:   database: CLINICAL_TRIALS_DEV
+[0m12:59:03.651492 [info ] [MainThread]:   warehouse: TRANSFORM_WH
+[0m12:59:03.651779 [info ] [MainThread]:   role: ACCOUNTADMIN
+[0m12:59:03.652042 [info ] [MainThread]:   schema: RAW
+[0m12:59:03.652303 [info ] [MainThread]:   authenticator: None
+[0m12:59:03.652563 [info ] [MainThread]:   oauth_client_id: None
+[0m12:59:03.652817 [info ] [MainThread]:   query_tag: None
+[0m12:59:03.653078 [info ] [MainThread]:   client_session_keep_alive: False
+[0m12:59:03.653335 [info ] [MainThread]:   host: None
+[0m12:59:03.653586 [info ] [MainThread]:   port: None
+[0m12:59:03.653854 [info ] [MainThread]:   proxy_host: None
+[0m12:59:03.654111 [info ] [MainThread]:   proxy_port: None
+[0m12:59:03.654359 [info ] [MainThread]:   protocol: None
+[0m12:59:03.654613 [info ] [MainThread]:   connect_retries: 1
+[0m12:59:03.655196 [info ] [MainThread]:   connect_timeout: None
+[0m12:59:03.655556 [info ] [MainThread]:   retry_on_database_errors: False
+[0m12:59:03.655826 [info ] [MainThread]:   retry_all: False
+[0m12:59:03.656141 [info ] [MainThread]:   insecure_mode: False
+[0m12:59:03.656403 [info ] [MainThread]:   reuse_connections: None
+[0m12:59:03.657130 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m12:59:03.776514 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m12:59:03.777906 [debug] [MainThread]: Using snowflake connection "debug"
+[0m12:59:03.778278 [debug] [MainThread]: On debug: select 1 as id
+[0m12:59:03.778596 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m12:59:05.030741 [debug] [MainThread]: SQL status: SUCCESS 1 in 1.251 seconds
+[0m12:59:05.033659 [debug] [MainThread]: On debug: Close
+[0m12:59:05.173632 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m12:59:05.174502 [info ] [MainThread]: [31m1 check failed:[0m
+[0m12:59:05.175061 [info ] [MainThread]: Project loading failed for the following reason:
+Runtime Error
+  Required "name" field not present in project
+
+Error encountered in /Users/praveen/alexion-ctgov/dbt/dbt_project.yml
+
+
+[0m12:59:05.183518 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 2.4093292, "process_in_blocks": "0", "process_kernel_time": 0.372529, "process_mem_max_rss": "196710400", "process_out_blocks": "0", "process_user_time": 2.24476}
+[0m12:59:05.184492 [debug] [MainThread]: Command `dbt debug` failed at 12:59:05.184281 after 2.41 seconds
+[0m12:59:05.185118 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m12:59:05.185700 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b27ba80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b0c3d10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b083680>]}
+[0m12:59:05.186321 [debug] [MainThread]: Flushing usage events
+[0m13:01:13.008515 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e13a510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110a27ed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110a27d90>]}
+
+
+============================== 13:01:13.014561 | b77be4c6-787d-4450-9f9d-5868952b8afa ==============================
+[0m13:01:13.014561 [info ] [MainThread]: Running with dbt=1.8.9
+[0m13:01:13.015311 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m13:01:13.025107 [info ] [MainThread]: dbt version: 1.8.9
+[0m13:01:13.025523 [info ] [MainThread]: python version: 3.13.0
+[0m13:01:13.025998 [info ] [MainThread]: python path: /Users/praveen/miniconda3/envs/myenv/bin/python
+[0m13:01:13.026642 [info ] [MainThread]: os info: macOS-10.16-x86_64-i386-64bit-Mach-O
+[0m13:01:13.760415 [info ] [MainThread]: Using profiles dir at /Users/praveen/alexion-ctgov/dbt
+[0m13:01:13.760906 [info ] [MainThread]: Using profiles.yml file at /Users/praveen/alexion-ctgov/dbt/profiles.yml
+[0m13:01:13.761238 [info ] [MainThread]: Using dbt_project.yml file at /Users/praveen/alexion-ctgov/dbt/dbt_project.yml
+[0m13:01:13.761712 [info ] [MainThread]: adapter type: snowflake
+[0m13:01:13.762010 [info ] [MainThread]: adapter version: 1.8.4
+[0m13:01:13.843967 [info ] [MainThread]: Configuration:
+[0m13:01:13.844415 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m13:01:13.844729 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m13:01:13.845021 [info ] [MainThread]: Required dependencies:
+[0m13:01:13.845358 [debug] [MainThread]: Executing "git --help"
+[0m13:01:13.862408 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m13:01:13.863442 [debug] [MainThread]: STDERR: "b''"
+[0m13:01:13.863870 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m13:01:13.864210 [info ] [MainThread]: Connection:
+[0m13:01:13.864553 [info ] [MainThread]:   account: WCOFXCF-NO82177
+[0m13:01:13.864847 [info ] [MainThread]:   user: PRAVEENSETUP96
+[0m13:01:13.865129 [info ] [MainThread]:   database: CLINICAL_TRIALS_DEV
+[0m13:01:13.865432 [info ] [MainThread]:   warehouse: TRANSFORM_WH
+[0m13:01:13.865690 [info ] [MainThread]:   role: ACCOUNTADMIN
+[0m13:01:13.865951 [info ] [MainThread]:   schema: RAW
+[0m13:01:13.866211 [info ] [MainThread]:   authenticator: None
+[0m13:01:13.866461 [info ] [MainThread]:   oauth_client_id: None
+[0m13:01:13.866711 [info ] [MainThread]:   query_tag: None
+[0m13:01:13.866966 [info ] [MainThread]:   client_session_keep_alive: False
+[0m13:01:13.867219 [info ] [MainThread]:   host: None
+[0m13:01:13.867472 [info ] [MainThread]:   port: None
+[0m13:01:13.867719 [info ] [MainThread]:   proxy_host: None
+[0m13:01:13.867966 [info ] [MainThread]:   proxy_port: None
+[0m13:01:13.868214 [info ] [MainThread]:   protocol: None
+[0m13:01:13.868465 [info ] [MainThread]:   connect_retries: 1
+[0m13:01:13.868729 [info ] [MainThread]:   connect_timeout: None
+[0m13:01:13.869082 [info ] [MainThread]:   retry_on_database_errors: False
+[0m13:01:13.869709 [info ] [MainThread]:   retry_all: False
+[0m13:01:13.870051 [info ] [MainThread]:   insecure_mode: False
+[0m13:01:13.870357 [info ] [MainThread]:   reuse_connections: None
+[0m13:01:13.871135 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m13:01:13.988551 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m13:01:13.989910 [debug] [MainThread]: Using snowflake connection "debug"
+[0m13:01:13.990287 [debug] [MainThread]: On debug: select 1 as id
+[0m13:01:13.990599 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:01:15.305838 [debug] [MainThread]: SQL status: SUCCESS 1 in 1.314 seconds
+[0m13:01:15.310762 [debug] [MainThread]: On debug: Close
+[0m13:01:15.453136 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m13:01:15.454443 [info ] [MainThread]: [32mAll checks passed![0m
+[0m13:01:15.465996 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 2.548, "process_in_blocks": "0", "process_kernel_time": 0.376715, "process_mem_max_rss": "199716864", "process_out_blocks": "0", "process_user_time": 2.316798}
+[0m13:01:15.467461 [debug] [MainThread]: Command `dbt debug` succeeded at 13:01:15.467155 after 2.55 seconds
+[0m13:01:15.468655 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m13:01:15.469312 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d545cd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118cb3e30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118c37240>]}
+[0m13:01:15.469974 [debug] [MainThread]: Flushing usage events
+[0m13:01:28.738689 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c4be510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10edabed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10edabd90>]}
+
+
+============================== 13:01:28.744309 | 753ec738-f587-4009-93a7-00146319e547 ==============================
+[0m13:01:28.744309 [info ] [MainThread]: Running with dbt=1.8.9
+[0m13:01:28.745017 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'debug': 'False', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt build', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m13:01:29.639404 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '753ec738-f587-4009-93a7-00146319e547', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dab4510>]}
+[0m13:01:29.695671 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '753ec738-f587-4009-93a7-00146319e547', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x116d83240>]}
+[0m13:01:29.696579 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m13:01:29.830134 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m13:01:29.831254 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m13:01:29.831707 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '753ec738-f587-4009-93a7-00146319e547', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x116d04f50>]}
+[0m13:01:30.801767 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `tests` config has been renamed to `data_tests`. Please see
+https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+information.
+[0m13:01:30.802374 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '753ec738-f587-4009-93a7-00146319e547', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e0dab70>]}
+[0m13:01:30.923126 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.ctgov.stg_ctgov__studies' (models/staging/stg_ctgov__studies.sql) depends on a source named 'raw.ctgov_studies' which was not found
+[0m13:01:30.928483 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 2.2813587, "process_in_blocks": "0", "process_kernel_time": 0.360809, "process_mem_max_rss": "187998208", "process_out_blocks": "0", "process_user_time": 3.264666}
+[0m13:01:30.929442 [debug] [MainThread]: Command `dbt build` failed at 13:01:30.929123 after 2.28 seconds
+[0m13:01:30.930007 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ecbfe70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11733ce50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1171da000>]}
+[0m13:01:30.930481 [debug] [MainThread]: Flushing usage events
+[0m13:03:40.173766 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110562510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112e43ed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112e43d90>]}
+
+
+============================== 13:03:40.179518 | 2311f0ee-37a5-49c5-a519-6426b446d96c ==============================
+[0m13:03:40.179518 [info ] [MainThread]: Running with dbt=1.8.9
+[0m13:03:40.180222 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m13:03:40.190201 [info ] [MainThread]: dbt version: 1.8.9
+[0m13:03:40.191471 [info ] [MainThread]: python version: 3.13.0
+[0m13:03:40.191864 [info ] [MainThread]: python path: /Users/praveen/miniconda3/envs/myenv/bin/python
+[0m13:03:40.192419 [info ] [MainThread]: os info: macOS-10.16-x86_64-i386-64bit-Mach-O
+[0m13:03:40.923825 [info ] [MainThread]: Using profiles dir at /Users/praveen/alexion-ctgov/dbt
+[0m13:03:40.924316 [info ] [MainThread]: Using profiles.yml file at /Users/praveen/alexion-ctgov/dbt/profiles.yml
+[0m13:03:40.924651 [info ] [MainThread]: Using dbt_project.yml file at /Users/praveen/alexion-ctgov/dbt/dbt_project.yml
+[0m13:03:40.925125 [info ] [MainThread]: adapter type: snowflake
+[0m13:03:40.925431 [info ] [MainThread]: adapter version: 1.8.4
+[0m13:03:41.005907 [info ] [MainThread]: Configuration:
+[0m13:03:41.006376 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m13:03:41.006723 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m13:03:41.007006 [info ] [MainThread]: Required dependencies:
+[0m13:03:41.007358 [debug] [MainThread]: Executing "git --help"
+[0m13:03:41.025277 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m13:03:41.026483 [debug] [MainThread]: STDERR: "b''"
+[0m13:03:41.026941 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m13:03:41.027311 [info ] [MainThread]: Connection:
+[0m13:03:41.027662 [info ] [MainThread]:   account: WCOFXCF-NO82177
+[0m13:03:41.027956 [info ] [MainThread]:   user: PRAVEENSETUP96
+[0m13:03:41.028228 [info ] [MainThread]:   database: CLINICAL_TRIALS_DEV
+[0m13:03:41.028505 [info ] [MainThread]:   warehouse: TRANSFORM_WH
+[0m13:03:41.028769 [info ] [MainThread]:   role: ACCOUNTADMIN
+[0m13:03:41.029038 [info ] [MainThread]:   schema: RAW
+[0m13:03:41.029302 [info ] [MainThread]:   authenticator: None
+[0m13:03:41.029559 [info ] [MainThread]:   oauth_client_id: None
+[0m13:03:41.029817 [info ] [MainThread]:   query_tag: None
+[0m13:03:41.030080 [info ] [MainThread]:   client_session_keep_alive: False
+[0m13:03:41.030334 [info ] [MainThread]:   host: None
+[0m13:03:41.030589 [info ] [MainThread]:   port: None
+[0m13:03:41.030838 [info ] [MainThread]:   proxy_host: None
+[0m13:03:41.031096 [info ] [MainThread]:   proxy_port: None
+[0m13:03:41.031353 [info ] [MainThread]:   protocol: None
+[0m13:03:41.031607 [info ] [MainThread]:   connect_retries: 1
+[0m13:03:41.031859 [info ] [MainThread]:   connect_timeout: None
+[0m13:03:41.032109 [info ] [MainThread]:   retry_on_database_errors: False
+[0m13:03:41.032360 [info ] [MainThread]:   retry_all: False
+[0m13:03:41.032817 [info ] [MainThread]:   insecure_mode: False
+[0m13:03:41.033157 [info ] [MainThread]:   reuse_connections: None
+[0m13:03:41.033924 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m13:03:41.152644 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m13:03:41.153990 [debug] [MainThread]: Using snowflake connection "debug"
+[0m13:03:41.154360 [debug] [MainThread]: On debug: select 1 as id
+[0m13:03:41.154673 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:03:42.265526 [debug] [MainThread]: SQL status: SUCCESS 1 in 1.110 seconds
+[0m13:03:42.269723 [debug] [MainThread]: On debug: Close
+[0m13:03:42.412433 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m13:03:42.413805 [info ] [MainThread]: [32mAll checks passed![0m
+[0m13:03:42.423937 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 2.341111, "process_in_blocks": "0", "process_kernel_time": 0.374787, "process_mem_max_rss": "199147520", "process_out_blocks": "0", "process_user_time": 2.304637}
+[0m13:03:42.425037 [debug] [MainThread]: Command `dbt debug` succeeded at 13:03:42.424856 after 2.34 seconds
+[0m13:03:42.425984 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m13:03:42.426663 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b0be780>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b0e3530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b077240>]}
+[0m13:03:42.427335 [debug] [MainThread]: Flushing usage events
+[0m13:03:49.667486 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c2de510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10eb9bed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10eb9bd90>]}
+
+
+============================== 13:03:49.673125 | 2656b03b-1d09-4d58-91dc-f19254b1f314 ==============================
+[0m13:03:49.673125 [info ] [MainThread]: Running with dbt=1.8.9
+[0m13:03:49.673846 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'debug': 'False', 'version_check': 'True', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'warn_error': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt build', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m13:03:50.507049 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2656b03b-1d09-4d58-91dc-f19254b1f314', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d8b0510>]}
+[0m13:03:50.561335 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '2656b03b-1d09-4d58-91dc-f19254b1f314', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x116d17240>]}
+[0m13:03:50.562180 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m13:03:50.689014 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m13:03:50.690034 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m13:03:50.690465 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '2656b03b-1d09-4d58-91dc-f19254b1f314', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x116c98f50>]}
+[0m13:03:51.624617 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `tests` config has been renamed to `data_tests`. Please see
+https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+information.
+[0m13:03:51.625229 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '2656b03b-1d09-4d58-91dc-f19254b1f314', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dedab70>]}
+[0m13:03:51.905157 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '2656b03b-1d09-4d58-91dc-f19254b1f314', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1172b7230>]}
+[0m13:03:52.015821 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '2656b03b-1d09-4d58-91dc-f19254b1f314', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1173a7a00>]}
+[0m13:03:52.016373 [info ] [MainThread]: Found 2 models, 2 data tests, 1 source, 464 macros
+[0m13:03:52.018830 [info ] [MainThread]: 
+[0m13:03:52.019433 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m13:03:52.023959 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_CLINICAL_TRIALS_DEV'
+[0m13:03:52.038296 [debug] [ThreadPool]: Using snowflake connection "list_CLINICAL_TRIALS_DEV"
+[0m13:03:52.038741 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "connection_name": "list_CLINICAL_TRIALS_DEV"} */
+show terse schemas in database CLINICAL_TRIALS_DEV
+    limit 10000
+[0m13:03:52.039075 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:03:52.970222 [debug] [ThreadPool]: SQL status: SUCCESS 5 in 0.930 seconds
+[0m13:03:52.975971 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV: Close
+[0m13:03:53.132790 [debug] [ThreadPool]: Using snowflake connection "list_CLINICAL_TRIALS_DEV"
+[0m13:03:53.133604 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "connection_name": "list_CLINICAL_TRIALS_DEV"} */
+show terse schemas in database CLINICAL_TRIALS_DEV
+    limit 10000
+[0m13:03:53.134273 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:03:53.762084 [debug] [ThreadPool]: SQL status: SUCCESS 5 in 0.627 seconds
+[0m13:03:53.767832 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV: Close
+[0m13:03:53.912600 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_CLINICAL_TRIALS_DEV, now create_CLINICAL_TRIALS_DEV_RAW_MARTS)
+[0m13:03:53.913648 [debug] [ThreadPool]: Creating schema "database: "CLINICAL_TRIALS_DEV"
+schema: "RAW_MARTS"
+"
+[0m13:03:53.920862 [debug] [ThreadPool]: Using snowflake connection "create_CLINICAL_TRIALS_DEV_RAW_MARTS"
+[0m13:03:53.921381 [debug] [ThreadPool]: On create_CLINICAL_TRIALS_DEV_RAW_MARTS: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "connection_name": "create_CLINICAL_TRIALS_DEV_RAW_MARTS"} */
+create schema if not exists CLINICAL_TRIALS_DEV.RAW_MARTS
+[0m13:03:53.921818 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:03:54.560919 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.639 seconds
+[0m13:03:54.562473 [debug] [ThreadPool]: On create_CLINICAL_TRIALS_DEV_RAW_MARTS: Close
+[0m13:03:54.683313 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_CLINICAL_TRIALS_DEV_RAW_MARTS, now create_CLINICAL_TRIALS_DEV_RAW_STAGING)
+[0m13:03:54.684690 [debug] [ThreadPool]: Creating schema "database: "CLINICAL_TRIALS_DEV"
+schema: "RAW_STAGING"
+"
+[0m13:03:54.689261 [debug] [ThreadPool]: Using snowflake connection "create_CLINICAL_TRIALS_DEV_RAW_STAGING"
+[0m13:03:54.689987 [debug] [ThreadPool]: On create_CLINICAL_TRIALS_DEV_RAW_STAGING: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "connection_name": "create_CLINICAL_TRIALS_DEV_RAW_STAGING"} */
+create schema if not exists CLINICAL_TRIALS_DEV.RAW_STAGING
+[0m13:03:54.690570 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:03:55.687240 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.996 seconds
+[0m13:03:55.692059 [debug] [ThreadPool]: On create_CLINICAL_TRIALS_DEV_RAW_STAGING: Close
+[0m13:03:55.835443 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_CLINICAL_TRIALS_DEV_RAW_STAGING, now list_CLINICAL_TRIALS_DEV_RAW_MARTS)
+[0m13:03:55.851597 [debug] [ThreadPool]: Using snowflake connection "list_CLINICAL_TRIALS_DEV_RAW_MARTS"
+[0m13:03:55.852163 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV_RAW_MARTS: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "connection_name": "list_CLINICAL_TRIALS_DEV_RAW_MARTS"} */
+show objects in CLINICAL_TRIALS_DEV.RAW_MARTS limit 10000
+[0m13:03:55.852545 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:03:56.677148 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 0.824 seconds
+[0m13:03:56.682200 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV_RAW_MARTS: Close
+[0m13:03:56.824647 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_CLINICAL_TRIALS_DEV_RAW_MARTS, now list_CLINICAL_TRIALS_DEV_RAW_STAGING)
+[0m13:03:56.829232 [debug] [ThreadPool]: Using snowflake connection "list_CLINICAL_TRIALS_DEV_RAW_STAGING"
+[0m13:03:56.829898 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV_RAW_STAGING: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "connection_name": "list_CLINICAL_TRIALS_DEV_RAW_STAGING"} */
+show objects in CLINICAL_TRIALS_DEV.RAW_STAGING limit 10000
+[0m13:03:56.830421 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:03:57.452115 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 0.621 seconds
+[0m13:03:57.457014 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV_RAW_STAGING: Close
+[0m13:03:57.588612 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2656b03b-1d09-4d58-91dc-f19254b1f314', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x117316990>]}
+[0m13:03:57.589940 [info ] [MainThread]: Concurrency: 1 threads (target='prod')
+[0m13:03:57.590583 [info ] [MainThread]: 
+[0m13:03:57.595411 [debug] [Thread-1 (]: Began running node model.ctgov.stg_ctgov__studies
+[0m13:03:57.596314 [info ] [Thread-1 (]: 1 of 4 START sql view model RAW_STAGING.stg_ctgov__studies ..................... [RUN]
+[0m13:03:57.597042 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_CLINICAL_TRIALS_DEV_RAW_STAGING, now model.ctgov.stg_ctgov__studies)
+[0m13:03:57.597758 [debug] [Thread-1 (]: Began compiling node model.ctgov.stg_ctgov__studies
+[0m13:03:57.607821 [debug] [Thread-1 (]: Writing injected SQL for node "model.ctgov.stg_ctgov__studies"
+[0m13:03:57.608825 [debug] [Thread-1 (]: Began executing node model.ctgov.stg_ctgov__studies
+[0m13:03:57.648221 [debug] [Thread-1 (]: Using snowflake connection "model.ctgov.stg_ctgov__studies"
+[0m13:03:57.648783 [debug] [Thread-1 (]: On model.ctgov.stg_ctgov__studies: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "node_id": "model.ctgov.stg_ctgov__studies"} */
+select * from (
+        
+
+with src as (
+  select RAW_DATA, INGESTION_TIMESTAMP, BATCH_ID
+  from CLINICAL_TRIALS_DEV.RAW.RAW_CTGOV_STUDIES
+),
+final as (
+  select
+    RAW_DATA:"protocolSection":"identificationModule":"nctId"::string      as nct_id,
+    RAW_DATA:"protocolSection":"identificationModule":"briefTitle"::string as brief_title,
+    RAW_DATA:"protocolSection":"statusModule":"overallStatus"::string      as latest_overall_status,
+    coalesce(
+      RAW_DATA:"protocolSection":"statusModule":"studyFirstSubmitDateStruct":"date"::date,
+      RAW_DATA:"protocolSection":"statusModule":"firstSubmittedDate"::date
+    )                                                                       as first_submitted_date,
+    RAW_DATA:"protocolSection":"designModule":"studyType"::string          as study_type,
+    array_to_string(RAW_DATA:"protocolSection":"designModule":"phases",',') as phases,
+    coalesce(
+      RAW_DATA:"protocolSection":"sponsorCollaboratorsModule":"leadSponsor":"class"::string,
+      RAW_DATA:"protocolSection":"sponsorCollaboratorsModule":"leadSponsor":"agencyClass"::string
+    )                                                                       as sponsor_class,
+    RAW_DATA:"hasResults"::boolean                                          as has_results,
+    INGESTION_TIMESTAMP,
+    BATCH_ID
+  from src
+)
+select * from final;
+[0m13:03:57.649276 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:03:58.289598 [debug] [Thread-1 (]: Snowflake adapter: Snowflake query id: 01bf3d05-3201-f5cc-0000-00102e0e8ae9
+[0m13:03:58.290729 [debug] [Thread-1 (]: Snowflake adapter: Snowflake error: 001003 (42000): SQL compilation error:
+syntax error line 28 at position 19 unexpected ';'.
+[0m13:03:58.294673 [debug] [Thread-1 (]: On model.ctgov.stg_ctgov__studies: Close
+[0m13:03:58.442052 [debug] [Thread-1 (]: Database Error in model stg_ctgov__studies (models/staging/stg_ctgov__studies.sql)
+  001003 (42000): SQL compilation error:
+  syntax error line 28 at position 19 unexpected ';'.
+[0m13:03:58.444024 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2656b03b-1d09-4d58-91dc-f19254b1f314', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1174a9700>]}
+[0m13:03:58.444831 [error] [Thread-1 (]: 1 of 4 ERROR creating sql view model RAW_STAGING.stg_ctgov__studies ............ [[31mERROR[0m in 0.85s]
+[0m13:03:58.445558 [debug] [Thread-1 (]: Finished running node model.ctgov.stg_ctgov__studies
+[0m13:03:58.447790 [debug] [Thread-1 (]: Began running node test.ctgov.not_null_stg_ctgov__studies_nct_id.929f7c30ce
+[0m13:03:58.448295 [info ] [Thread-1 (]: 2 of 4 SKIP test not_null_stg_ctgov__studies_nct_id ............................ [[33mSKIP[0m]
+[0m13:03:58.448822 [debug] [Thread-1 (]: Finished running node test.ctgov.not_null_stg_ctgov__studies_nct_id.929f7c30ce
+[0m13:03:58.449528 [debug] [Thread-1 (]: Began running node model.ctgov.fct_clinical_trial_early_stops
+[0m13:03:58.449964 [info ] [Thread-1 (]: 3 of 4 SKIP relation RAW_MARTS.fct_clinical_trial_early_stops .................. [[33mSKIP[0m]
+[0m13:03:58.450442 [debug] [Thread-1 (]: Finished running node model.ctgov.fct_clinical_trial_early_stops
+[0m13:03:58.451091 [debug] [Thread-1 (]: Began running node test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b
+[0m13:03:58.451555 [info ] [Thread-1 (]: 4 of 4 SKIP test ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate  [[33mSKIP[0m]
+[0m13:03:58.451974 [debug] [Thread-1 (]: Finished running node test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b
+[0m13:03:58.453103 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:03:58.453415 [debug] [MainThread]: Connection 'model.ctgov.stg_ctgov__studies' was properly closed.
+[0m13:03:58.453770 [info ] [MainThread]: 
+[0m13:03:58.454129 [info ] [MainThread]: Finished running 1 view model, 2 data tests, 1 table model in 0 hours 0 minutes and 6.43 seconds (6.43s).
+[0m13:03:58.454936 [debug] [MainThread]: Command end result
+[0m13:03:58.483047 [info ] [MainThread]: 
+[0m13:03:58.483524 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m13:03:58.483853 [info ] [MainThread]: 
+[0m13:03:58.484245 [error] [MainThread]:   Database Error in model stg_ctgov__studies (models/staging/stg_ctgov__studies.sql)
+  001003 (42000): SQL compilation error:
+  syntax error line 28 at position 19 unexpected ';'.
+[0m13:03:58.484550 [info ] [MainThread]: 
+[0m13:03:58.484879 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=3 TOTAL=4
+[0m13:03:58.489884 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 8.913554, "process_in_blocks": "0", "process_kernel_time": 0.485914, "process_mem_max_rss": "218787840", "process_out_blocks": "0", "process_user_time": 4.654051}
+[0m13:03:58.490477 [debug] [MainThread]: Command `dbt build` failed at 13:03:58.490369 after 8.91 seconds
+[0m13:03:58.490936 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11bf6c730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11bf2f2f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c7b7a50>]}
+[0m13:03:58.491315 [debug] [MainThread]: Flushing usage events
+[0m13:09:01.534708 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c8de510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f1bfed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f1bfd90>]}
+
+
+============================== 13:09:01.540459 | e2098138-64c6-4aa4-993b-cf4880007773 ==============================
+[0m13:09:01.540459 [info ] [MainThread]: Running with dbt=1.8.9
+[0m13:09:01.541173 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m13:09:01.550848 [info ] [MainThread]: dbt version: 1.8.9
+[0m13:09:01.551555 [info ] [MainThread]: python version: 3.13.0
+[0m13:09:01.552023 [info ] [MainThread]: python path: /Users/praveen/miniconda3/envs/myenv/bin/python
+[0m13:09:01.552342 [info ] [MainThread]: os info: macOS-10.16-x86_64-i386-64bit-Mach-O
+[0m13:09:02.283586 [info ] [MainThread]: Using profiles dir at /Users/praveen/alexion-ctgov/dbt
+[0m13:09:02.284077 [info ] [MainThread]: Using profiles.yml file at /Users/praveen/alexion-ctgov/dbt/profiles.yml
+[0m13:09:02.284402 [info ] [MainThread]: Using dbt_project.yml file at /Users/praveen/alexion-ctgov/dbt/dbt_project.yml
+[0m13:09:02.284866 [info ] [MainThread]: adapter type: snowflake
+[0m13:09:02.285172 [info ] [MainThread]: adapter version: 1.8.4
+[0m13:09:02.367058 [info ] [MainThread]: Configuration:
+[0m13:09:02.367523 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m13:09:02.367850 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m13:09:02.368138 [info ] [MainThread]: Required dependencies:
+[0m13:09:02.368508 [debug] [MainThread]: Executing "git --help"
+[0m13:09:02.386527 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m13:09:02.387699 [debug] [MainThread]: STDERR: "b''"
+[0m13:09:02.388104 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m13:09:02.388514 [info ] [MainThread]: Connection:
+[0m13:09:02.388932 [info ] [MainThread]:   account: WCOFXCF-NO82177
+[0m13:09:02.389238 [info ] [MainThread]:   user: PRAVEENSETUP96
+[0m13:09:02.389541 [info ] [MainThread]:   database: CLINICAL_TRIALS_DEV
+[0m13:09:02.389817 [info ] [MainThread]:   warehouse: TRANSFORM_WH
+[0m13:09:02.390087 [info ] [MainThread]:   role: ACCOUNTADMIN
+[0m13:09:02.390373 [info ] [MainThread]:   schema: RAW
+[0m13:09:02.390640 [info ] [MainThread]:   authenticator: None
+[0m13:09:02.390903 [info ] [MainThread]:   oauth_client_id: None
+[0m13:09:02.391168 [info ] [MainThread]:   query_tag: None
+[0m13:09:02.391426 [info ] [MainThread]:   client_session_keep_alive: False
+[0m13:09:02.391700 [info ] [MainThread]:   host: None
+[0m13:09:02.391958 [info ] [MainThread]:   port: None
+[0m13:09:02.392207 [info ] [MainThread]:   proxy_host: None
+[0m13:09:02.392467 [info ] [MainThread]:   proxy_port: None
+[0m13:09:02.392720 [info ] [MainThread]:   protocol: None
+[0m13:09:02.392970 [info ] [MainThread]:   connect_retries: 1
+[0m13:09:02.393225 [info ] [MainThread]:   connect_timeout: None
+[0m13:09:02.393472 [info ] [MainThread]:   retry_on_database_errors: False
+[0m13:09:02.393793 [info ] [MainThread]:   retry_all: False
+[0m13:09:02.394067 [info ] [MainThread]:   insecure_mode: False
+[0m13:09:02.394542 [info ] [MainThread]:   reuse_connections: None
+[0m13:09:02.395409 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m13:09:02.514216 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m13:09:02.515591 [debug] [MainThread]: Using snowflake connection "debug"
+[0m13:09:02.515952 [debug] [MainThread]: On debug: select 1 as id
+[0m13:09:02.516261 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:09:03.656583 [debug] [MainThread]: SQL status: SUCCESS 1 in 1.139 seconds
+[0m13:09:03.660458 [debug] [MainThread]: On debug: Close
+[0m13:09:03.802870 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m13:09:03.804089 [info ] [MainThread]: [32mAll checks passed![0m
+[0m13:09:03.815050 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 2.3722131, "process_in_blocks": "0", "process_kernel_time": 0.378401, "process_mem_max_rss": "199741440", "process_out_blocks": "0", "process_user_time": 2.313652}
+[0m13:09:03.816306 [debug] [MainThread]: Command `dbt debug` succeeded at 13:09:03.816099 after 2.37 seconds
+[0m13:09:03.816925 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m13:09:03.818091 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11743a780>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11745fbf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1173f3240>]}
+[0m13:09:03.818794 [debug] [MainThread]: Flushing usage events
+[0m13:09:11.688426 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1105aa510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112e8bed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112e8bd90>]}
+
+
+============================== 13:09:11.694069 | 4b14b49f-c611-434f-80b8-9805339bdd44 ==============================
+[0m13:09:11.694069 [info ] [MainThread]: Running with dbt=1.8.9
+[0m13:09:11.694790 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'version_check': 'True', 'debug': 'False', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'invocation_command': 'dbt build', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m13:09:12.521573 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '4b14b49f-c611-434f-80b8-9805339bdd44', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111b9c510>]}
+[0m13:09:12.575217 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '4b14b49f-c611-434f-80b8-9805339bdd44', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11ae97240>]}
+[0m13:09:12.576012 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m13:09:12.703543 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m13:09:12.822348 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 2 files added, 1 files changed.
+[0m13:09:12.822974 [debug] [MainThread]: Partial parsing: added file: ctgov://macros/generate_schema_name.sql
+[0m13:09:12.823358 [debug] [MainThread]: Partial parsing: added file: ctgov://models/staging/stg_ctgov_studies.sql
+[0m13:09:12.823828 [debug] [MainThread]: Partial parsing: updated file: ctgov://models/staging/schema.yml
+[0m13:09:12.824242 [debug] [MainThread]: Partial parsing: deleted file: ctgov://models/staging/stg_ctgov__studies.sql
+[0m13:09:13.031478 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `tests` config has been renamed to `data_tests`. Please see
+https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+information.
+[0m13:09:13.032105 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '4b14b49f-c611-434f-80b8-9805339bdd44', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b420750>]}
+[0m13:09:13.043401 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'stg_ctgov__studies' in the 'models' section of file 'models/staging/schema.yml'
+[0m13:09:13.146011 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.ctgov.fct_clinical_trial_early_stops' (models/marts/fct_clinical_trial_early_stops.sql) depends on a node named 'stg_ctgov__studies' which was not found
+[0m13:09:13.151270 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 1.553863, "process_in_blocks": "0", "process_kernel_time": 0.339204, "process_mem_max_rss": "187232256", "process_out_blocks": "0", "process_user_time": 2.557187}
+[0m13:09:13.152279 [debug] [MainThread]: Command `dbt build` failed at 13:09:13.151928 after 1.55 seconds
+[0m13:09:13.152834 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11ad73b60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b5f0500>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112d9fe70>]}
+[0m13:09:13.153324 [debug] [MainThread]: Flushing usage events
+[0m13:18:30.642469 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e516510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110dd3ed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110dd3d90>]}
+
+
+============================== 13:18:30.648155 | 7fa375ad-f1cc-4c81-bb3e-f7336a89ebb8 ==============================
+[0m13:18:30.648155 [info ] [MainThread]: Running with dbt=1.8.9
+[0m13:18:30.648880 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'debug': 'False', 'version_check': 'True', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt parse', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m13:18:31.484506 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '7fa375ad-f1cc-4c81-bb3e-f7336a89ebb8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10faec510>]}
+[0m13:18:31.538406 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '7fa375ad-f1cc-4c81-bb3e-f7336a89ebb8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118f57240>]}
+[0m13:18:31.539203 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m13:18:31.665191 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m13:18:31.666211 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m13:18:31.666635 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '7fa375ad-f1cc-4c81-bb3e-f7336a89ebb8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118ed4f50>]}
+[0m13:18:32.595370 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `tests` config has been renamed to `data_tests`. Please see
+https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+information.
+[0m13:18:32.595977 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '7fa375ad-f1cc-4c81-bb3e-f7336a89ebb8', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110112b70>]}
+[0m13:18:32.607392 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'stg_ctgov__studies' in the 'models' section of file 'models/staging/schema.yml'
+[0m13:18:32.773863 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'stg_ctgov__studies' in the 'models' section of file 'models/staging/_stg_sources.yml'
+[0m13:18:32.776201 [error] [MainThread]: Encountered an error:
+Compilation Error
+  dbt found two data_tests with the name "not_null_stg_ctgov__studies_nct_id" defined on column "nct_id" in "models.stg_ctgov__studies".
+  
+  Since these resources have the same name, dbt will be unable to find the correct resource
+  when running tests.
+  
+  To fix this, change the name of one of these resources:
+  - test.ctgov.not_null_stg_ctgov__studies_nct_id.929f7c30ce (models/staging/_stg_sources.yml)
+  - test.ctgov.not_null_stg_ctgov__studies_nct_id.929f7c30ce (models/staging/schema.yml)
+[0m13:18:32.781536 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": false, "command_wall_clock_time": 2.2307312, "process_in_blocks": "0", "process_kernel_time": 0.343199, "process_mem_max_rss": "186740736", "process_out_blocks": "0", "process_user_time": 3.22782}
+[0m13:18:32.782395 [debug] [MainThread]: Command `dbt parse` failed at 13:18:32.782045 after 2.23 seconds
+[0m13:18:32.782937 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110cebe70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1194ee890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x119229cc0>]}
+[0m13:18:32.783333 [debug] [MainThread]: Flushing usage events
+[0m13:20:40.569267 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dee6510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1107c7ed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1107c7d90>]}
+
+
+============================== 13:20:40.574785 | 81588322-fce7-4cd5-ac24-99c2b0f7f035 ==============================
+[0m13:20:40.574785 [info ] [MainThread]: Running with dbt=1.8.9
+[0m13:20:40.575510 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'version_check': 'True', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt parse', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m13:20:41.409480 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '81588322-fce7-4cd5-ac24-99c2b0f7f035', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f4d8510>]}
+[0m13:20:41.463263 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '81588322-fce7-4cd5-ac24-99c2b0f7f035', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1187db240>]}
+[0m13:20:41.464098 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m13:20:41.592755 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m13:20:41.593814 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m13:20:41.594253 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '81588322-fce7-4cd5-ac24-99c2b0f7f035', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118758f50>]}
+[0m13:20:42.515816 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `tests` config has been renamed to `data_tests`. Please see
+https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+information.
+[0m13:20:42.516421 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '81588322-fce7-4cd5-ac24-99c2b0f7f035', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10faf6b70>]}
+[0m13:20:42.709268 [error] [MainThread]: Encountered an error:
+Compilation Error
+  dbt found two schema.yml entries for the same resource named fct_clinical_trial_early_stops. Resources and their associated columns may only be described a single time. To fix this, remove the resource entry for fct_clinical_trial_early_stops in one of these files:
+   - models/marts/_marts_schema.yml
+  models/marts/schema.yml
+[0m13:20:42.714610 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": false, "command_wall_clock_time": 2.2370982, "process_in_blocks": "0", "process_kernel_time": 0.346746, "process_mem_max_rss": "187383808", "process_out_blocks": "0", "process_user_time": 3.233408}
+[0m13:20:42.715407 [debug] [MainThread]: Command `dbt parse` failed at 13:20:42.715095 after 2.24 seconds
+[0m13:20:42.715892 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1106dbe70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118ea83d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118bc2680>]}
+[0m13:20:42.716318 [debug] [MainThread]: Flushing usage events
+[0m13:21:39.408565 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e29e510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110b8bed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110b8bd90>]}
+
+
+============================== 13:21:39.414340 | 369e30ee-08dc-4f8f-ad52-bb8394702388 ==============================
+[0m13:21:39.414340 [info ] [MainThread]: Running with dbt=1.8.9
+[0m13:21:39.415043 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt parse', 'send_anonymous_usage_stats': 'True'}
+[0m13:21:40.317355 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '369e30ee-08dc-4f8f-ad52-bb8394702388', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f898510>]}
+[0m13:21:40.371290 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '369e30ee-08dc-4f8f-ad52-bb8394702388', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118b6f240>]}
+[0m13:21:40.372088 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m13:21:40.499767 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m13:21:40.500942 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m13:21:40.501441 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '369e30ee-08dc-4f8f-ad52-bb8394702388', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118aecf50>]}
+[0m13:21:41.420265 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `tests` config has been renamed to `data_tests`. Please see
+https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+information.
+[0m13:21:41.420852 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '369e30ee-08dc-4f8f-ad52-bb8394702388', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10febab70>]}
+[0m13:21:41.705671 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '369e30ee-08dc-4f8f-ad52-bb8394702388', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11925b5b0>]}
+[0m13:21:41.709715 [info ] [MainThread]: Performance info: /Users/praveen/alexion-ctgov/dbt/target/perf_info.json
+[0m13:21:41.803178 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": true, "command_wall_clock_time": 2.4857695, "process_in_blocks": "0", "process_kernel_time": 0.353146, "process_mem_max_rss": "191115264", "process_out_blocks": "0", "process_user_time": 3.427718}
+[0m13:21:41.804015 [debug] [MainThread]: Command `dbt parse` succeeded at 13:21:41.803698 after 2.49 seconds
+[0m13:21:41.804483 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x119387c70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110a55cd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x119348e90>]}
+[0m13:21:41.804869 [debug] [MainThread]: Flushing usage events
+[0m13:21:57.464470 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c9da510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f2b7ed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f2b7d90>]}
+
+
+============================== 13:21:57.470264 | f80091e1-1117-45a5-b564-9fca6e1a482e ==============================
+[0m13:21:57.470264 [info ] [MainThread]: Running with dbt=1.8.9
+[0m13:21:57.470987 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'version_check': 'True', 'warn_error': 'None', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt ls --resource-type model', 'send_anonymous_usage_stats': 'True'}
+[0m13:21:58.301288 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f80091e1-1117-45a5-b564-9fca6e1a482e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dfcc510>]}
+[0m13:21:58.357689 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f80091e1-1117-45a5-b564-9fca6e1a482e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1172af350>]}
+[0m13:21:58.358542 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m13:21:58.487030 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m13:21:58.603335 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m13:21:58.603770 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m13:21:58.647509 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f80091e1-1117-45a5-b564-9fca6e1a482e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11724d150>]}
+[0m13:21:58.753223 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f80091e1-1117-45a5-b564-9fca6e1a482e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11786fd40>]}
+[0m13:21:58.753729 [info ] [MainThread]: Found 2 models, 3 data tests, 1 source, 466 macros
+[0m13:21:58.754116 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f80091e1-1117-45a5-b564-9fca6e1a482e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x117909b70>]}
+[0m13:21:58.759616 [debug] [MainThread]: Resource report: {"command_name": "list", "command_success": true, "command_wall_clock_time": 1.3870454, "process_in_blocks": "0", "process_kernel_time": 0.33981, "process_mem_max_rss": "183193600", "process_out_blocks": "0", "process_user_time": 2.392731}
+[0m13:21:58.760880 [debug] [MainThread]: Command `dbt ls` succeeded at 13:21:58.760461 after 1.39 seconds
+[0m13:21:58.761427 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11791e680>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f185cd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x117895fd0>]}
+[0m13:21:58.761897 [debug] [MainThread]: Flushing usage events
+[0m13:22:18.664295 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cc32510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f513ed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f513d90>]}
+
+
+============================== 13:22:18.670016 | f6a2b56a-a270-4319-b87c-89fb0007d8a2 ==============================
+[0m13:22:18.670016 [info ] [MainThread]: Running with dbt=1.8.9
+[0m13:22:18.670760 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt build', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m13:22:19.496520 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f6a2b56a-a270-4319-b87c-89fb0007d8a2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e224510>]}
+[0m13:22:19.550332 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f6a2b56a-a270-4319-b87c-89fb0007d8a2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11751f240>]}
+[0m13:22:19.551127 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m13:22:19.677641 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m13:22:19.796099 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m13:22:19.796568 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m13:22:19.849806 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f6a2b56a-a270-4319-b87c-89fb0007d8a2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1174a1150>]}
+[0m13:22:19.961366 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f6a2b56a-a270-4319-b87c-89fb0007d8a2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1177948c0>]}
+[0m13:22:19.961969 [info ] [MainThread]: Found 2 models, 3 data tests, 1 source, 466 macros
+[0m13:22:19.964210 [info ] [MainThread]: 
+[0m13:22:19.964851 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m13:22:19.969819 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_CLINICAL_TRIALS_DEV'
+[0m13:22:19.986478 [debug] [ThreadPool]: Using snowflake connection "list_CLINICAL_TRIALS_DEV"
+[0m13:22:19.986904 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "connection_name": "list_CLINICAL_TRIALS_DEV"} */
+show terse schemas in database CLINICAL_TRIALS_DEV
+    limit 10000
+[0m13:22:19.987244 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:22:21.309829 [debug] [ThreadPool]: SQL status: SUCCESS 7 in 1.322 seconds
+[0m13:22:21.313929 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV: Close
+[0m13:22:21.492473 [debug] [ThreadPool]: Using snowflake connection "list_CLINICAL_TRIALS_DEV"
+[0m13:22:21.493642 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "connection_name": "list_CLINICAL_TRIALS_DEV"} */
+show terse schemas in database CLINICAL_TRIALS_DEV
+    limit 10000
+[0m13:22:21.494500 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:22:22.228395 [debug] [ThreadPool]: SQL status: SUCCESS 7 in 0.733 seconds
+[0m13:22:22.235621 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV: Close
+[0m13:22:22.385023 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_CLINICAL_TRIALS_DEV, now list_CLINICAL_TRIALS_DEV_STAGING)
+[0m13:22:22.400460 [debug] [ThreadPool]: Using snowflake connection "list_CLINICAL_TRIALS_DEV_STAGING"
+[0m13:22:22.401018 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV_STAGING: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "connection_name": "list_CLINICAL_TRIALS_DEV_STAGING"} */
+show objects in CLINICAL_TRIALS_DEV.STAGING limit 10000
+[0m13:22:22.401401 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:22:23.716828 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 1.315 seconds
+[0m13:22:23.721937 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV_STAGING: Close
+[0m13:22:23.849342 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_CLINICAL_TRIALS_DEV_STAGING, now list_CLINICAL_TRIALS_DEV_MARTS)
+[0m13:22:23.852594 [debug] [ThreadPool]: Using snowflake connection "list_CLINICAL_TRIALS_DEV_MARTS"
+[0m13:22:23.853174 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV_MARTS: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "connection_name": "list_CLINICAL_TRIALS_DEV_MARTS"} */
+show objects in CLINICAL_TRIALS_DEV.MARTS limit 10000
+[0m13:22:23.853604 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:22:24.555356 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 0.701 seconds
+[0m13:22:24.560848 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV_MARTS: Close
+[0m13:22:24.690652 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f6a2b56a-a270-4319-b87c-89fb0007d8a2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x117c0dc50>]}
+[0m13:22:24.691804 [info ] [MainThread]: Concurrency: 1 threads (target='prod')
+[0m13:22:24.692429 [info ] [MainThread]: 
+[0m13:22:24.696193 [debug] [Thread-1 (]: Began running node model.ctgov.stg_ctgov_studies
+[0m13:22:24.697066 [info ] [Thread-1 (]: 1 of 5 START sql view model STAGING.stg_ctgov_studies .......................... [RUN]
+[0m13:22:24.697781 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_CLINICAL_TRIALS_DEV_MARTS, now model.ctgov.stg_ctgov_studies)
+[0m13:22:24.698415 [debug] [Thread-1 (]: Began compiling node model.ctgov.stg_ctgov_studies
+[0m13:22:24.708863 [debug] [Thread-1 (]: Writing injected SQL for node "model.ctgov.stg_ctgov_studies"
+[0m13:22:24.710008 [debug] [Thread-1 (]: Began executing node model.ctgov.stg_ctgov_studies
+[0m13:22:24.749508 [debug] [Thread-1 (]: Using snowflake connection "model.ctgov.stg_ctgov_studies"
+[0m13:22:24.750097 [debug] [Thread-1 (]: On model.ctgov.stg_ctgov_studies: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "node_id": "model.ctgov.stg_ctgov_studies"} */
+select * from (
+        
+
+with src as (
+  select RAW_DATA, INGESTION_TIMESTAMP, BATCH_ID
+  from CLINICAL_TRIALS_DEV.RAW.RAW_CTGOV_STUDIES
+),
+
+final as (
+  select
+    RAW_DATA:"protocolSection":"identificationModule":"nctId"::string       as nct_id,
+    RAW_DATA:"protocolSection":"identificationModule":"briefTitle"::string  as brief_title,
+    RAW_DATA:"protocolSection":"statusModule":"overallStatus"::string       as latest_overall_status,
+    coalesce(
+      RAW_DATA:"protocolSection":"statusModule":"studyFirstSubmitDateStruct":"date"::date,
+      RAW_DATA:"protocolSection":"statusModule":"studyFirstSubmitDate"::date
+    )                                                                       as first_submitted_date,
+    RAW_DATA:"protocolSection":"designModule":"studyType"::string           as study_type,
+    ARRAY_TO_STRING(TRY_CAST(RAW_DATA:"protocolSection":"designModule":"phases" AS ARRAY), ',')
+                                                                            as phases,
+    coalesce(
+      RAW_DATA:"protocolSection":"sponsorCollaboratorsModule":"leadSponsor":"class"::string,
+      RAW_DATA:"protocolSection":"sponsorCollaboratorsModule":"leadSponsor":"agencyClass"::string
+    )                                                                       as sponsor_class,
+    RAW_DATA:"hasResults"::boolean                                          as has_results,
+    INGESTION_TIMESTAMP,
+    BATCH_ID
+  from src
+)
+
+select * from final
+    ) as __dbt_sbq
+    where false
+    limit 0
+[0m13:22:24.750578 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:22:25.469711 [debug] [Thread-1 (]: Snowflake adapter: Snowflake query id: 01bf3d18-3201-f19a-0000-00102e0e3b89
+[0m13:22:25.470787 [debug] [Thread-1 (]: Snowflake adapter: Snowflake error: 001065 (22023): SQL compilation error:
+Function TRY_CAST cannot be used with arguments of types VARIANT and ARRAY
+[0m13:22:25.471913 [debug] [Thread-1 (]: On model.ctgov.stg_ctgov_studies: Close
+[0m13:22:25.646116 [debug] [Thread-1 (]: Database Error in model stg_ctgov_studies (models/staging/stg_ctgov_studies.sql)
+  001065 (22023): SQL compilation error:
+  Function TRY_CAST cannot be used with arguments of types VARIANT and ARRAY
+[0m13:22:25.648337 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f6a2b56a-a270-4319-b87c-89fb0007d8a2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x116f1e0d0>]}
+[0m13:22:25.649241 [error] [Thread-1 (]: 1 of 5 ERROR creating sql view model STAGING.stg_ctgov_studies ................. [[31mERROR[0m in 0.95s]
+[0m13:22:25.649982 [debug] [Thread-1 (]: Finished running node model.ctgov.stg_ctgov_studies
+[0m13:22:25.651919 [debug] [Thread-1 (]: Began running node test.ctgov.not_null_stg_ctgov_studies_nct_id.ea6ebb9a63
+[0m13:22:25.652517 [info ] [Thread-1 (]: 2 of 5 SKIP test not_null_stg_ctgov_studies_nct_id ............................. [[33mSKIP[0m]
+[0m13:22:25.653072 [debug] [Thread-1 (]: Finished running node test.ctgov.not_null_stg_ctgov_studies_nct_id.ea6ebb9a63
+[0m13:22:25.653740 [debug] [Thread-1 (]: Began running node model.ctgov.fct_clinical_trial_early_stops
+[0m13:22:25.654219 [info ] [Thread-1 (]: 3 of 5 SKIP relation MARTS.fct_clinical_trial_early_stops ...................... [[33mSKIP[0m]
+[0m13:22:25.654741 [debug] [Thread-1 (]: Finished running node model.ctgov.fct_clinical_trial_early_stops
+[0m13:22:25.655515 [debug] [Thread-1 (]: Began running node test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b
+[0m13:22:25.655989 [info ] [Thread-1 (]: 4 of 5 SKIP test ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate  [[33mSKIP[0m]
+[0m13:22:25.656460 [debug] [Thread-1 (]: Finished running node test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b
+[0m13:22:25.656881 [debug] [Thread-1 (]: Began running node test.ctgov.not_null_fct_clinical_trial_early_stops_sponsor_class.ff9acc905c
+[0m13:22:25.657337 [info ] [Thread-1 (]: 5 of 5 SKIP test not_null_fct_clinical_trial_early_stops_sponsor_class ......... [[33mSKIP[0m]
+[0m13:22:25.657762 [debug] [Thread-1 (]: Finished running node test.ctgov.not_null_fct_clinical_trial_early_stops_sponsor_class.ff9acc905c
+[0m13:22:25.658829 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:22:25.659129 [debug] [MainThread]: Connection 'model.ctgov.stg_ctgov_studies' was properly closed.
+[0m13:22:25.659469 [info ] [MainThread]: 
+[0m13:22:25.659811 [info ] [MainThread]: Finished running 1 view model, 3 data tests, 1 table model in 0 hours 0 minutes and 5.69 seconds (5.69s).
+[0m13:22:25.660654 [debug] [MainThread]: Command end result
+[0m13:22:25.688788 [info ] [MainThread]: 
+[0m13:22:25.689274 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m13:22:25.689601 [info ] [MainThread]: 
+[0m13:22:25.690000 [error] [MainThread]:   Database Error in model stg_ctgov_studies (models/staging/stg_ctgov_studies.sql)
+  001065 (22023): SQL compilation error:
+  Function TRY_CAST cannot be used with arguments of types VARIANT and ARRAY
+[0m13:22:25.690317 [info ] [MainThread]: 
+[0m13:22:25.690649 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=4 TOTAL=5
+[0m13:22:25.695567 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 7.1222787, "process_in_blocks": "0", "process_kernel_time": 0.447166, "process_mem_max_rss": "211013632", "process_out_blocks": "0", "process_user_time": 3.375657}
+[0m13:22:25.696143 [debug] [MainThread]: Command `dbt build` failed at 13:22:25.696037 after 7.12 seconds
+[0m13:22:25.697414 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f3ddcd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x117d2fe30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x117d2d4f0>]}
+[0m13:22:25.697815 [debug] [MainThread]: Flushing usage events
+[0m13:24:20.975125 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110a3a510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1132f7ed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1132f7d90>]}
+
+
+============================== 13:24:20.980862 | e22d7642-ce8d-4adc-bb64-28b3c49b05cf ==============================
+[0m13:24:20.980862 [info ] [MainThread]: Running with dbt=1.8.9
+[0m13:24:20.981581 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt build', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m13:24:21.810670 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e22d7642-ce8d-4adc-bb64-28b3c49b05cf', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112010510>]}
+[0m13:24:21.864240 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e22d7642-ce8d-4adc-bb64-28b3c49b05cf', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b473240>]}
+[0m13:24:21.865030 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m13:24:21.990123 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m13:24:22.110488 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m13:24:22.111321 [debug] [MainThread]: Partial parsing: updated file: ctgov://models/staging/stg_ctgov_studies.sql
+[0m13:24:22.314290 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `tests` config has been renamed to `data_tests`. Please see
+https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+information.
+[0m13:24:22.314878 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'e22d7642-ce8d-4adc-bb64-28b3c49b05cf', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b874750>]}
+[0m13:24:22.478738 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'e22d7642-ce8d-4adc-bb64-28b3c49b05cf', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b89a030>]}
+[0m13:24:22.583439 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'e22d7642-ce8d-4adc-bb64-28b3c49b05cf', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11bb60ad0>]}
+[0m13:24:22.584018 [info ] [MainThread]: Found 2 models, 3 data tests, 1 source, 466 macros
+[0m13:24:22.586163 [info ] [MainThread]: 
+[0m13:24:22.586779 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m13:24:22.591412 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_CLINICAL_TRIALS_DEV'
+[0m13:24:22.606402 [debug] [ThreadPool]: Using snowflake connection "list_CLINICAL_TRIALS_DEV"
+[0m13:24:22.606837 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "connection_name": "list_CLINICAL_TRIALS_DEV"} */
+show terse schemas in database CLINICAL_TRIALS_DEV
+    limit 10000
+[0m13:24:22.607174 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:24:23.909834 [debug] [ThreadPool]: SQL status: SUCCESS 7 in 1.301 seconds
+[0m13:24:23.913305 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV: Close
+[0m13:24:24.065915 [debug] [ThreadPool]: Using snowflake connection "list_CLINICAL_TRIALS_DEV"
+[0m13:24:24.066777 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "connection_name": "list_CLINICAL_TRIALS_DEV"} */
+show terse schemas in database CLINICAL_TRIALS_DEV
+    limit 10000
+[0m13:24:24.067459 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:24:24.911104 [debug] [ThreadPool]: SQL status: SUCCESS 7 in 0.843 seconds
+[0m13:24:24.918505 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV: Close
+[0m13:24:25.046884 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_CLINICAL_TRIALS_DEV, now list_CLINICAL_TRIALS_DEV_MARTS)
+[0m13:24:25.063317 [debug] [ThreadPool]: Using snowflake connection "list_CLINICAL_TRIALS_DEV_MARTS"
+[0m13:24:25.063862 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV_MARTS: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "connection_name": "list_CLINICAL_TRIALS_DEV_MARTS"} */
+show objects in CLINICAL_TRIALS_DEV.MARTS limit 10000
+[0m13:24:25.064245 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:24:25.946855 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 0.882 seconds
+[0m13:24:25.951276 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV_MARTS: Close
+[0m13:24:26.082768 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_CLINICAL_TRIALS_DEV_MARTS, now list_CLINICAL_TRIALS_DEV_STAGING)
+[0m13:24:26.087983 [debug] [ThreadPool]: Using snowflake connection "list_CLINICAL_TRIALS_DEV_STAGING"
+[0m13:24:26.088885 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV_STAGING: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "connection_name": "list_CLINICAL_TRIALS_DEV_STAGING"} */
+show objects in CLINICAL_TRIALS_DEV.STAGING limit 10000
+[0m13:24:26.089433 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:24:26.710635 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 0.621 seconds
+[0m13:24:26.713912 [debug] [ThreadPool]: On list_CLINICAL_TRIALS_DEV_STAGING: Close
+[0m13:24:26.840238 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e22d7642-ce8d-4adc-bb64-28b3c49b05cf', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12021fba0>]}
+[0m13:24:26.840908 [info ] [MainThread]: Concurrency: 1 threads (target='prod')
+[0m13:24:26.841282 [info ] [MainThread]: 
+[0m13:24:26.843425 [debug] [Thread-1 (]: Began running node model.ctgov.stg_ctgov_studies
+[0m13:24:26.843995 [info ] [Thread-1 (]: 1 of 5 START sql view model STAGING.stg_ctgov_studies .......................... [RUN]
+[0m13:24:26.844454 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_CLINICAL_TRIALS_DEV_STAGING, now model.ctgov.stg_ctgov_studies)
+[0m13:24:26.844831 [debug] [Thread-1 (]: Began compiling node model.ctgov.stg_ctgov_studies
+[0m13:24:26.852999 [debug] [Thread-1 (]: Writing injected SQL for node "model.ctgov.stg_ctgov_studies"
+[0m13:24:26.853791 [debug] [Thread-1 (]: Began executing node model.ctgov.stg_ctgov_studies
+[0m13:24:26.892455 [debug] [Thread-1 (]: Using snowflake connection "model.ctgov.stg_ctgov_studies"
+[0m13:24:26.893056 [debug] [Thread-1 (]: On model.ctgov.stg_ctgov_studies: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "node_id": "model.ctgov.stg_ctgov_studies"} */
+select * from (
+        
+
+with src as (
+  select RAW_DATA, INGESTION_TIMESTAMP, BATCH_ID
+  from CLINICAL_TRIALS_DEV.RAW.RAW_CTGOV_STUDIES
+),
+
+final as (
+  select
+    RAW_DATA:"protocolSection":"identificationModule":"nctId"::string       as nct_id,
+    RAW_DATA:"protocolSection":"identificationModule":"briefTitle"::string  as brief_title,
+    RAW_DATA:"protocolSection":"statusModule":"overallStatus"::string       as latest_overall_status,
+    coalesce(
+      RAW_DATA:"protocolSection":"statusModule":"studyFirstSubmitDateStruct":"date"::date,
+      RAW_DATA:"protocolSection":"statusModule":"studyFirstSubmitDate"::date
+    )                                                                       as first_submitted_date,
+    RAW_DATA:"protocolSection":"designModule":"studyType"::string           as study_type,
+
+    CASE
+      WHEN TYPEOF(RAW_DATA:"protocolSection":"designModule":"phases") = 'ARRAY'
+        THEN ARRAY_TO_STRING(RAW_DATA:"protocolSection":"designModule":"phases", ',')
+      WHEN TYPEOF(RAW_DATA:"protocolSection":"designModule":"phases") = 'VARCHAR'
+        THEN RAW_DATA:"protocolSection":"designModule":"phases"::string
+      ELSE NULL
+    END                                                                     as phases,
+
+    coalesce(
+      RAW_DATA:"protocolSection":"sponsorCollaboratorsModule":"leadSponsor":"class"::string,
+      RAW_DATA:"protocolSection":"sponsorCollaboratorsModule":"leadSponsor":"agencyClass"::string
+    )                                                                       as sponsor_class,
+
+    RAW_DATA:"hasResults"::boolean                                          as has_results,
+    INGESTION_TIMESTAMP,
+    BATCH_ID
+  from src
+)
+
+select * from final
+    ) as __dbt_sbq
+    where false
+    limit 0
+[0m13:24:26.893554 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:24:27.972564 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 1.078 seconds
+[0m13:24:27.985999 [debug] [Thread-1 (]: Writing runtime sql for node "model.ctgov.stg_ctgov_studies"
+[0m13:24:27.988927 [debug] [Thread-1 (]: Using snowflake connection "model.ctgov.stg_ctgov_studies"
+[0m13:24:27.989509 [debug] [Thread-1 (]: On model.ctgov.stg_ctgov_studies: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "node_id": "model.ctgov.stg_ctgov_studies"} */
+create or replace   view CLINICAL_TRIALS_DEV.STAGING.stg_ctgov_studies
+  
+    
+    
+(
+  
+    "NCT_ID" COMMENT $$$$, 
+  
+    "BRIEF_TITLE" COMMENT $$$$, 
+  
+    "LATEST_OVERALL_STATUS" COMMENT $$$$, 
+  
+    "FIRST_SUBMITTED_DATE" COMMENT $$$$, 
+  
+    "STUDY_TYPE" COMMENT $$$$, 
+  
+    "PHASES" COMMENT $$$$, 
+  
+    "SPONSOR_CLASS" COMMENT $$$$, 
+  
+    "HAS_RESULTS" COMMENT $$$$, 
+  
+    "INGESTION_TIMESTAMP" COMMENT $$$$, 
+  
+    "BATCH_ID" COMMENT $$$$
+  
+)
+
+   as (
+    
+
+with src as (
+  select RAW_DATA, INGESTION_TIMESTAMP, BATCH_ID
+  from CLINICAL_TRIALS_DEV.RAW.RAW_CTGOV_STUDIES
+),
+
+final as (
+  select
+    RAW_DATA:"protocolSection":"identificationModule":"nctId"::string       as nct_id,
+    RAW_DATA:"protocolSection":"identificationModule":"briefTitle"::string  as brief_title,
+    RAW_DATA:"protocolSection":"statusModule":"overallStatus"::string       as latest_overall_status,
+    coalesce(
+      RAW_DATA:"protocolSection":"statusModule":"studyFirstSubmitDateStruct":"date"::date,
+      RAW_DATA:"protocolSection":"statusModule":"studyFirstSubmitDate"::date
+    )                                                                       as first_submitted_date,
+    RAW_DATA:"protocolSection":"designModule":"studyType"::string           as study_type,
+
+    CASE
+      WHEN TYPEOF(RAW_DATA:"protocolSection":"designModule":"phases") = 'ARRAY'
+        THEN ARRAY_TO_STRING(RAW_DATA:"protocolSection":"designModule":"phases", ',')
+      WHEN TYPEOF(RAW_DATA:"protocolSection":"designModule":"phases") = 'VARCHAR'
+        THEN RAW_DATA:"protocolSection":"designModule":"phases"::string
+      ELSE NULL
+    END                                                                     as phases,
+
+    coalesce(
+      RAW_DATA:"protocolSection":"sponsorCollaboratorsModule":"leadSponsor":"class"::string,
+      RAW_DATA:"protocolSection":"sponsorCollaboratorsModule":"leadSponsor":"agencyClass"::string
+    )                                                                       as sponsor_class,
+
+    RAW_DATA:"hasResults"::boolean                                          as has_results,
+    INGESTION_TIMESTAMP,
+    BATCH_ID
+  from src
+)
+
+select * from final
+  );
+[0m13:24:28.199161 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.208 seconds
+[0m13:24:28.229483 [debug] [Thread-1 (]: Using snowflake connection "model.ctgov.stg_ctgov_studies"
+[0m13:24:28.230042 [debug] [Thread-1 (]: On model.ctgov.stg_ctgov_studies: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "node_id": "model.ctgov.stg_ctgov_studies"} */
+comment on view CLINICAL_TRIALS_DEV.STAGING.stg_ctgov_studies IS $$Flattened CTGov (Interventional P2/3, StudyFirstSubmitDate >= 2015-01-01).$$;
+[0m13:24:28.322539 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.092 seconds
+[0m13:24:28.334972 [debug] [Thread-1 (]: On model.ctgov.stg_ctgov_studies: Close
+[0m13:24:28.630101 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e22d7642-ce8d-4adc-bb64-28b3c49b05cf', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11bb7a2d0>]}
+[0m13:24:28.631206 [info ] [Thread-1 (]: 1 of 5 OK created sql view model STAGING.stg_ctgov_studies ..................... [[32mSUCCESS 1[0m in 1.78s]
+[0m13:24:28.632165 [debug] [Thread-1 (]: Finished running node model.ctgov.stg_ctgov_studies
+[0m13:24:28.634134 [debug] [Thread-1 (]: Began running node test.ctgov.not_null_stg_ctgov_studies_nct_id.ea6ebb9a63
+[0m13:24:28.634742 [info ] [Thread-1 (]: 2 of 5 START test not_null_stg_ctgov_studies_nct_id ............................ [RUN]
+[0m13:24:28.635285 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.ctgov.stg_ctgov_studies, now test.ctgov.not_null_stg_ctgov_studies_nct_id.ea6ebb9a63)
+[0m13:24:28.635744 [debug] [Thread-1 (]: Began compiling node test.ctgov.not_null_stg_ctgov_studies_nct_id.ea6ebb9a63
+[0m13:24:28.648962 [debug] [Thread-1 (]: Writing injected SQL for node "test.ctgov.not_null_stg_ctgov_studies_nct_id.ea6ebb9a63"
+[0m13:24:28.649980 [debug] [Thread-1 (]: Began executing node test.ctgov.not_null_stg_ctgov_studies_nct_id.ea6ebb9a63
+[0m13:24:28.675840 [debug] [Thread-1 (]: Writing runtime sql for node "test.ctgov.not_null_stg_ctgov_studies_nct_id.ea6ebb9a63"
+[0m13:24:28.677075 [debug] [Thread-1 (]: Using snowflake connection "test.ctgov.not_null_stg_ctgov_studies_nct_id.ea6ebb9a63"
+[0m13:24:28.677524 [debug] [Thread-1 (]: On test.ctgov.not_null_stg_ctgov_studies_nct_id.ea6ebb9a63: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "node_id": "test.ctgov.not_null_stg_ctgov_studies_nct_id.ea6ebb9a63"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select nct_id
+from CLINICAL_TRIALS_DEV.STAGING.stg_ctgov_studies
+where nct_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m13:24:28.677913 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:24:29.914229 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.235 seconds
+[0m13:24:29.923491 [debug] [Thread-1 (]: On test.ctgov.not_null_stg_ctgov_studies_nct_id.ea6ebb9a63: Close
+[0m13:24:30.051318 [info ] [Thread-1 (]: 2 of 5 PASS not_null_stg_ctgov_studies_nct_id .................................. [[32mPASS[0m in 1.42s]
+[0m13:24:30.053022 [debug] [Thread-1 (]: Finished running node test.ctgov.not_null_stg_ctgov_studies_nct_id.ea6ebb9a63
+[0m13:24:30.055001 [debug] [Thread-1 (]: Began running node model.ctgov.fct_clinical_trial_early_stops
+[0m13:24:30.056183 [info ] [Thread-1 (]: 3 of 5 START sql table model MARTS.fct_clinical_trial_early_stops .............. [RUN]
+[0m13:24:30.057267 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ctgov.not_null_stg_ctgov_studies_nct_id.ea6ebb9a63, now model.ctgov.fct_clinical_trial_early_stops)
+[0m13:24:30.058087 [debug] [Thread-1 (]: Began compiling node model.ctgov.fct_clinical_trial_early_stops
+[0m13:24:30.063281 [debug] [Thread-1 (]: Writing injected SQL for node "model.ctgov.fct_clinical_trial_early_stops"
+[0m13:24:30.065119 [debug] [Thread-1 (]: Began executing node model.ctgov.fct_clinical_trial_early_stops
+[0m13:24:30.091651 [debug] [Thread-1 (]: Writing runtime sql for node "model.ctgov.fct_clinical_trial_early_stops"
+[0m13:24:30.093335 [debug] [Thread-1 (]: Using snowflake connection "model.ctgov.fct_clinical_trial_early_stops"
+[0m13:24:30.093811 [debug] [Thread-1 (]: On model.ctgov.fct_clinical_trial_early_stops: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "node_id": "model.ctgov.fct_clinical_trial_early_stops"} */
+create or replace transient table CLINICAL_TRIALS_DEV.MARTS.fct_clinical_trial_early_stops
+         as
+        (
+
+with base as (
+  select *
+  from CLINICAL_TRIALS_DEV.STAGING.stg_ctgov_studies
+  where study_type = 'INTERVENTIONAL'
+    and (phases ilike '%PHASE2%' or phases ilike '%PHASE3%')
+),
+
+agg as (
+  select
+    coalesce(sponsor_class, 'UNKNOWN') as sponsor_class,
+    sum(case when latest_overall_status in ('TERMINATED','WITHDRAWN','SUSPENDED') then 1 else 0 end) as early_stop_cnt,
+    sum(case when latest_overall_status in ('COMPLETED','TERMINATED','WITHDRAWN','SUSPENDED') then 1 else 0 end) as closed_cnt
+  from base
+  group by 1
+)
+
+select
+  sponsor_class,
+  early_stop_cnt,
+  closed_cnt,
+  case when closed_cnt = 0 then null else early_stop_cnt::float/closed_cnt::float end as early_stop_rate
+from agg
+        );
+[0m13:24:30.094236 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:24:31.450157 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.355 seconds
+[0m13:24:31.455630 [debug] [Thread-1 (]: Using snowflake connection "model.ctgov.fct_clinical_trial_early_stops"
+[0m13:24:31.456450 [debug] [Thread-1 (]: On model.ctgov.fct_clinical_trial_early_stops: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "node_id": "model.ctgov.fct_clinical_trial_early_stops"} */
+comment on table CLINICAL_TRIALS_DEV.MARTS.fct_clinical_trial_early_stops IS $$Per sponsor_class: early-stop count, closed count, early-stop rate.$$;
+[0m13:24:31.568405 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.111 seconds
+[0m13:24:31.595417 [debug] [Thread-1 (]: Using snowflake connection "model.ctgov.fct_clinical_trial_early_stops"
+[0m13:24:31.596156 [debug] [Thread-1 (]: On model.ctgov.fct_clinical_trial_early_stops: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "node_id": "model.ctgov.fct_clinical_trial_early_stops"} */
+describe table CLINICAL_TRIALS_DEV.MARTS.fct_clinical_trial_early_stops
+[0m13:24:31.711504 [debug] [Thread-1 (]: SQL status: SUCCESS 4 in 0.114 seconds
+[0m13:24:31.721445 [debug] [Thread-1 (]: Using snowflake connection "model.ctgov.fct_clinical_trial_early_stops"
+[0m13:24:31.722240 [debug] [Thread-1 (]: On model.ctgov.fct_clinical_trial_early_stops: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "node_id": "model.ctgov.fct_clinical_trial_early_stops"} */
+alter table CLINICAL_TRIALS_DEV.MARTS.fct_clinical_trial_early_stops alter
+    
+        "SPONSOR_CLASS" COMMENT $$$$,
+    
+        "EARLY_STOP_CNT" COMMENT $$$$,
+    
+        "CLOSED_CNT" COMMENT $$$$,
+    
+        "EARLY_STOP_RATE" COMMENT $$$$;
+[0m13:24:31.837639 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.114 seconds
+[0m13:24:31.842452 [debug] [Thread-1 (]: On model.ctgov.fct_clinical_trial_early_stops: Close
+[0m13:24:31.994773 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e22d7642-ce8d-4adc-bb64-28b3c49b05cf', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x120646d00>]}
+[0m13:24:31.995703 [info ] [Thread-1 (]: 3 of 5 OK created sql table model MARTS.fct_clinical_trial_early_stops ......... [[32mSUCCESS 1[0m in 1.94s]
+[0m13:24:31.996402 [debug] [Thread-1 (]: Finished running node model.ctgov.fct_clinical_trial_early_stops
+[0m13:24:31.997293 [debug] [Thread-1 (]: Began running node test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b
+[0m13:24:31.997798 [info ] [Thread-1 (]: 4 of 5 START test ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate  [RUN]
+[0m13:24:31.998339 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.ctgov.fct_clinical_trial_early_stops, now test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b)
+[0m13:24:31.998783 [debug] [Thread-1 (]: Began compiling node test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b
+[0m13:24:32.004153 [debug] [Thread-1 (]: Writing injected SQL for node "test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b"
+[0m13:24:32.005098 [debug] [Thread-1 (]: Began executing node test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b
+[0m13:24:32.007505 [debug] [Thread-1 (]: Writing runtime sql for node "test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b"
+[0m13:24:32.008642 [debug] [Thread-1 (]: Using snowflake connection "test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b"
+[0m13:24:32.009077 [debug] [Thread-1 (]: On test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "node_id": "test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+select *
+from CLINICAL_TRIALS_DEV.MARTS.fct_clinical_trial_early_stops
+where early_stop_rate is not null
+  and (early_stop_rate < 0 or early_stop_rate > 1)
+
+  
+  
+      
+    ) dbt_internal_test
+[0m13:24:32.009477 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:24:32.746790 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.736 seconds
+[0m13:24:32.754520 [debug] [Thread-1 (]: On test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b: Close
+[0m13:24:32.899541 [info ] [Thread-1 (]: 4 of 5 PASS ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate ... [[32mPASS[0m in 0.90s]
+[0m13:24:32.901264 [debug] [Thread-1 (]: Finished running node test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b
+[0m13:24:32.902191 [debug] [Thread-1 (]: Began running node test.ctgov.not_null_fct_clinical_trial_early_stops_sponsor_class.ff9acc905c
+[0m13:24:32.903026 [info ] [Thread-1 (]: 5 of 5 START test not_null_fct_clinical_trial_early_stops_sponsor_class ........ [RUN]
+[0m13:24:32.903805 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ctgov.ctgov_between_0_1_fct_clinical_trial_early_stops_early_stop_rate.1d72012e0b, now test.ctgov.not_null_fct_clinical_trial_early_stops_sponsor_class.ff9acc905c)
+[0m13:24:32.904464 [debug] [Thread-1 (]: Began compiling node test.ctgov.not_null_fct_clinical_trial_early_stops_sponsor_class.ff9acc905c
+[0m13:24:32.911305 [debug] [Thread-1 (]: Writing injected SQL for node "test.ctgov.not_null_fct_clinical_trial_early_stops_sponsor_class.ff9acc905c"
+[0m13:24:32.912906 [debug] [Thread-1 (]: Began executing node test.ctgov.not_null_fct_clinical_trial_early_stops_sponsor_class.ff9acc905c
+[0m13:24:32.915942 [debug] [Thread-1 (]: Writing runtime sql for node "test.ctgov.not_null_fct_clinical_trial_early_stops_sponsor_class.ff9acc905c"
+[0m13:24:32.917490 [debug] [Thread-1 (]: Using snowflake connection "test.ctgov.not_null_fct_clinical_trial_early_stops_sponsor_class.ff9acc905c"
+[0m13:24:32.918100 [debug] [Thread-1 (]: On test.ctgov.not_null_fct_clinical_trial_early_stops_sponsor_class.ff9acc905c: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "ctgov", "target_name": "prod", "node_id": "test.ctgov.not_null_fct_clinical_trial_early_stops_sponsor_class.ff9acc905c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select sponsor_class
+from CLINICAL_TRIALS_DEV.MARTS.fct_clinical_trial_early_stops
+where sponsor_class is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m13:24:32.918646 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:24:34.010040 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.091 seconds
+[0m13:24:34.016702 [debug] [Thread-1 (]: On test.ctgov.not_null_fct_clinical_trial_early_stops_sponsor_class.ff9acc905c: Close
+[0m13:24:34.183215 [info ] [Thread-1 (]: 5 of 5 PASS not_null_fct_clinical_trial_early_stops_sponsor_class .............. [[32mPASS[0m in 1.28s]
+[0m13:24:34.184159 [debug] [Thread-1 (]: Finished running node test.ctgov.not_null_fct_clinical_trial_early_stops_sponsor_class.ff9acc905c
+[0m13:24:34.185633 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:24:34.186082 [debug] [MainThread]: Connection 'test.ctgov.not_null_fct_clinical_trial_early_stops_sponsor_class.ff9acc905c' was properly closed.
+[0m13:24:34.186537 [info ] [MainThread]: 
+[0m13:24:34.186960 [info ] [MainThread]: Finished running 1 view model, 3 data tests, 1 table model in 0 hours 0 minutes and 11.60 seconds (11.60s).
+[0m13:24:34.188478 [debug] [MainThread]: Command end result
+[0m13:24:34.216263 [info ] [MainThread]: 
+[0m13:24:34.216737 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m13:24:34.217071 [info ] [MainThread]: 
+[0m13:24:34.217415 [info ] [MainThread]: Done. PASS=5 WARN=0 ERROR=0 SKIP=0 TOTAL=5
+[0m13:24:34.222481 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": true, "command_wall_clock_time": 13.338796, "process_in_blocks": "0", "process_kernel_time": 0.493775, "process_mem_max_rss": "216416256", "process_out_blocks": "0", "process_user_time": 4.39339}
+[0m13:24:34.223074 [debug] [MainThread]: Command `dbt build` succeeded at 13:24:34.222964 after 13.34 seconds
+[0m13:24:34.223500 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11bd2c870>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12078bc80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110f6f4d0>]}
+[0m13:24:34.223885 [debug] [MainThread]: Flushing usage events
+[0m00:08:37.138095 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109204e90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108e9d150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109283150>]}
+
+
+============================== 00:08:37.141682 | 2f0282fa-c344-4123-803b-365f58379764 ==============================
+[0m00:08:37.141682 [info ] [MainThread]: Running with dbt=1.10.11
+[0m00:08:37.142169 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'log_cache_events': 'False', 'fail_fast': 'False', 'cache_selected_only': 'False', 'send_anonymous_usage_stats': 'True', 'empty': 'False', 'indirect_selection': 'eager', 'partial_parse': 'True', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'version_check': 'True', 'introspect': 'True', 'warn_error': 'None', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'static_parser': 'True', 'printer_width': '80', 'no_print': 'None', 'invocation_command': 'dbt run -m stg_ctgov_phases_csv', 'target_path': 'None', 'quiet': 'False', 'use_experimental_parser': 'False', 'use_colors': 'True'}
+[0m00:08:37.142565 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+Usage of `--models`, `--model`, and `-m` is deprecated in favor of `--select` or
+`-s`.
+[0m00:08:37.142868 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '2f0282fa-c344-4123-803b-365f58379764', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10924a850>]}
+[0m00:08:37.146566 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Env var required but not provided: 'SNOWFLAKE_ACCOUNT'
+[0m00:08:37.147015 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- ModelParamUsageDeprecation: 1 occurrence
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m00:08:37.178984 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.10381192, "process_in_blocks": "0", "process_kernel_time": 0.206767, "process_mem_max_rss": "108019712", "process_out_blocks": "0", "process_user_time": 1.128395}
+[0m00:08:37.179416 [debug] [MainThread]: Command `dbt run` failed at 00:08:37.179338 after 0.10 seconds
+[0m00:08:37.179734 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109107310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104c42a90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104b0a750>]}
+[0m00:08:37.180010 [debug] [MainThread]: Flushing usage events
+[0m00:08:38.317997 [debug] [MainThread]: An error was encountered while trying to flush usage events

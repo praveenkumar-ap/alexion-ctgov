@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: fct_clinical_trial_early_stops
+    description: "Per-sponsor-class counts of early-stopped vs total closed trials; includes early_stop_rate."
+    columns:
+      - name: sponsor_class
+        description: "Lead sponsor class."
+        tests: [not_null]
+      - name: early_stopped_trials
+        description: "Terminated + Withdrawn + Suspended."
+      - name: closed_trials
+        description: "Completed + early-stopped."
+      - name: early_stop_rate
+        description: "early_stopped_trials / closed_trials."
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 1
+              inclusive: true
