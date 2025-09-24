@@ -134,8 +134,8 @@ FROM STAGING.stg_ctgov_studies;
 ```sql
 SELECT
   sponsor_class,
-  early_stopped,
-  closed,
+  EARLY_STOP_TRIALS,
+  CLOSED_TRIALS,
   early_stop_rate
 FROM MARTS.fct_clinical_trial_early_stops
 ORDER BY sponsor_class;
