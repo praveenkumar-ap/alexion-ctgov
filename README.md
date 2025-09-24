@@ -88,6 +88,18 @@ SELECT
   ANY_VALUE(BATCH_ID)                                                      AS sample_batch
 FROM RAW.RAW_CTGOV_STUDIES;
 
+-- check  parsed JSON (NCT ID, status, type, phases)
+SELECT
+  RAW_DATA:"protocolSection":"identificationModule":"nctId"::string       AS nct_id,
+  RAW_DATA:"protocolSection":"statusModule":"overallStatus"::string       AS overall_status,
+  RAW_DATA:"protocolSection":"designModule":"studyType"::string           AS study_type,
+  RAW_DATA:"protocolSection":"designModule":"phases"                      AS phases_json,
+  INGESTION_TIMESTAMP,
+  BATCH_ID
+FROM RAW.RAW_CTGOV_STUDIES
+ORDER BY INGESTION_TIMESTAMP DESC
+LIMIT 15;
+
 -- Distinct batches (newest first)
 WITH ranked AS (
   SELECT BATCH_ID, MAX(INGESTION_TIMESTAMP) AS ts
@@ -118,12 +130,12 @@ FROM STAGING.stg_ctgov_studies;
 -- Phase 2 or 3 presence (string contains PHASE2/PHASE3)
 SELECT COUNT(*) AS p2_p3_rows
 FROM STAGING.stg_ctgov_studies
-WHERE REGEXP_LIKE(phases, 'PHASE2|PHASE3');
+WHERE REGEXP_LIKE(phases_json, 'PHASE2|PHASE3');
 
 -- How many rows have first_submitted_date populated
 SELECT
-  COUNT(*)                            AS total_rows,
-  COUNT(first_submitted_date)         AS populated_first_submitted_date
+  COUNT(*) AS total_rows,
+  COUNT(first_submitted_date) AS populated_first_submitted_date
 FROM STAGING.stg_ctgov_studies;
 ```
 
