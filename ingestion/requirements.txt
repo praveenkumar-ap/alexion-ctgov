@@ -1,5 +1,6 @@
 requests>=2.32.0
 pandas
+pyarrow
 snowflake-connector-python>=3.10.0
 python-dotenv>=1.0.1
 dbt-core==1.8.*

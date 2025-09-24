@@ -35,7 +35,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r ingestion/requirements.txt
           pip install dbt-snowflake
-          pip install great_expectations pandas
+          pip install great_expectations pandas pyarrow
 
       - name: Install ingestion + dbt + GX deps
         run: |
