@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: stg_ctgov_studies
-    description: "Flattened CTGov v2 studies: one row per study (NCT). Source is RAW.RAW_CTGOV_STUDIES."
+    description: "Flattened CTGov v2 studies (one row per NCT ID) sourced from RAW.RAW_CTGOV_STUDIES."
     columns:
       - name: nct_id
         description: "ClinicalTrials.gov NCT identifier."
@@ -18,6 +18,6 @@ models:
       - name: phases
         description: "Study phases (flattened array; e.g. 'PHASE2,PHASE3')."
       - name: sponsor_class
-        description: "Lead sponsor class (Industry/NIH/… as provided by CTGov)."
+        description: "Lead sponsor class (Industry/NIH/etc.)."
       - name: has_results
         description: "Whether results are posted."

@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: fct_clinical_trial_early_stops
+    description: "KPIs per sponsor class: early-stops, closed-trials, and early_stop_rate."
+    columns:
+      - name: sponsor_class
+        description: "Lead sponsor class (e.g., Industry, NIH, Other)"
+        tests:
+          - not_null
+      - name: closed_trials
+        description: "Completed + (Terminated/Withdrawn/Suspended)"
+        tests:
+          - not_null
+      - name: early_stops
+        description: "Terminated or Withdrawn or Suspended"
+        tests:
+          - not_null
+      - name: early_stop_rate
+        description: "early_stops / closed_trials (0..1)"
+        tests:
+          - not_null
