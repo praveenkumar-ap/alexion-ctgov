@@ -4,6 +4,7 @@ sources:
   - name: raw
     schema: RAW
     description: "Landing schema with raw JSON from ClinicalTrials.gov"
+    database: CLINICAL_TRIALS_DEV
     tables:
       - name: ctgov_studies
         identifier: RAW_CTGOV_STUDIES
