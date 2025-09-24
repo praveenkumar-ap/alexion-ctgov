@@ -34,6 +34,12 @@ Everything runs in **GitHub Actions**, so don’t need local setup for quick rev
 
 # 1. GitHub → Actions → “CTGov Ingestion Pipeline” → Run workflow.
 
+#### or
+
+#### Direct work flow link (https://github.com/praveenkumar-ap/alexion-ctgov/actions/workflows/ctgov_ingestion.yml)
+
+*Right click the link and open new tab so that ReadME page reamins here.*
+
 **_Note: The workflow take 6-7 mins to finish, most of the time time takes to establish snowflake connection and save the data to table_**
 
    
