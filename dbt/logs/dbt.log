@@ -1178,3 +1178,17 @@ parsing.
 [0m00:08:37.179734 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109107310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104c42a90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104b0a750>]}
 [0m00:08:37.180010 [debug] [MainThread]: Flushing usage events
 [0m00:08:38.317997 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:57:12.798005 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105474210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105882ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105883710>]}
+
+
+============================== 12:57:12.802066 | 3df8ff93-d56a-4e6a-9f50-0f9f9a851e7d ==============================
+[0m12:57:12.802066 [info ] [MainThread]: Running with dbt=1.10.11
+[0m12:57:12.802540 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'log_cache_events': 'False', 'static_parser': 'True', 'profiles_dir': '/Users/praveen/alexion-ctgov/dbt', 'fail_fast': 'False', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': '/Users/praveen/alexion-ctgov/dbt/logs', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'empty': 'False', 'no_print': 'None', 'quiet': 'False', 'version_check': 'True', 'indirect_selection': 'eager', 'use_colors': 'True', 'log_format': 'default', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'debug': 'False', 'introspect': 'True', 'printer_width': '80', 'invocation_command': 'dbt build', 'warn_error': 'None'}
+[0m12:57:12.806323 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Env var required but not provided: 'SNOWFLAKE_ACCOUNT'
+[0m12:57:12.836202 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 0.10390429, "process_in_blocks": "0", "process_kernel_time": 0.242871, "process_mem_max_rss": "107560960", "process_out_blocks": "0", "process_user_time": 1.106101}
+[0m12:57:12.836639 [debug] [MainThread]: Command `dbt build` failed at 12:57:12.836554 after 0.10 seconds
+[0m12:57:12.836964 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x100f92590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10588fc50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10588f990>]}
+[0m12:57:12.837280 [debug] [MainThread]: Flushing usage events
+[0m12:57:13.761672 [debug] [MainThread]: An error was encountered while trying to flush usage events

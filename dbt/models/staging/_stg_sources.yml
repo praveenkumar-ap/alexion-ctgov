@@ -1,16 +1,1 @@
-version: 2
 
-sources:
-  - name: raw
-    database: "{{ env_var('SNOWFLAKE_DATABASE', 'CLINICAL_TRIALS_DEV') }}"
-    schema: RAW
-    tables:
-      - name: ctgov_studies
-        identifier: RAW_CTGOV_STUDIES
-
-models:
-  - name: stg_ctgov_studies
-    description: "Flattened CTGov (Interventional P2/3, StudyFirstSubmitDate >= 2015-01-01)."
-    columns:
-      - name: nct_id
-        tests: [not_null]
