@@ -151,6 +151,36 @@ SELECT
   early_stop_rate
 FROM MARTS.fct_clinical_trial_early_stops
 ORDER BY sponsor_class;
+
+
+-- Order by sponser class
+SELECT
+  sponsor_class,
+  EARLY_STOP_TRIALS AS early_stopped_trials,
+  CLOSED_TRIALS AS closed_trials,
+  early_stop_rate
+FROM MARTS.fct_clinical_trial_early_stops
+ORDER BY sponsor_class;
+
+--Cross-check against Silver
+
+SELECT
+  sponsor_class,
+  COUNT_IF(latest_overall_status IN ('TERMINATED','WITHDRAWN','SUSPENDED')) AS early_stopped_trials,
+  COUNT_IF(latest_overall_status IN ('COMPLETED','TERMINATED','WITHDRAWN','SUSPENDED')) AS closed_trials
+FROM STAGING.stg_ctgov_studies
+GROUP BY sponsor_class
+ORDER BY sponsor_class;
+
+
+--Top statuses within Phase 3 only
+-- If you have phases CSV:
+SELECT latest_overall_status, COUNT(*) AS cnt
+FROM STAGING.stg_ctgov_studies
+WHERE phases_json ILIKE '%PHASE3%'
+GROUP BY latest_overall_status
+ORDER BY cnt DESC;
+
 ```
 
 **Required guardrail:**
