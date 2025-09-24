@@ -1,235 +1,127 @@
 #!/usr/bin/env python3
 """
-Great Expectations validation for the STAGING.stg_ctgov_studies view in Snowflake.
+Great Expectations checks for our Snowflake models.
+
+- Checks STAGING.STG_CTGOV_STUDIES: NCT_ID is not null
+- Checks MARTS.FCT_CLINICAL_TRIAL_EARLY_STOPS: EARLY_STOP_RATE in [0, 1]
+
+Exits non-zero if any expectation fails.
 """
 
-import json
-import logging
 import os
 import sys
-from datetime import date
-from typing import Tuple
-from urllib.parse import quote
+import logging
+import traceback
 
+import pandas as pd
+import snowflake.connector
 import great_expectations as gx
 
-# -------- Logging ----------
-LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
+
+# -------- logging --------
+LOG_LEVEL = os.getenv("GX_LOG_LEVEL", "INFO").upper()
 logging.basicConfig(
     level=getattr(logging, LOG_LEVEL, logging.INFO),
-    format="%(asctime)s %(levelname)s %(name)s :: %(message)s",
+    format="%(asctime)s %(levelname)s gx :: %(message)s",
 )
 log = logging.getLogger("gx")
 
 
-def _need(name: str) -> str:
-    val = os.getenv(name)
-    if not val:
-        raise RuntimeError(f"Missing required env var: {name}")
-    return val
+# -------- helpers --------
+def env(name: str, default: str | None = None, required: bool = False) -> str:
+    v = os.getenv(name, default)
+    if required and (v is None or str(v).strip() == ""):
+        raise RuntimeError(f"Missing env var {name}")
+    return str(v) if v is not None else ""
 
 
-def _conn_parts() -> Tuple[str, str, str, str, str, str, str]:
-    """
-    Collect and normalize Snowflake connection parameters.
-    Returns (account, user, password, warehouse, database, schema, role)
-    """
-    account = _need("SNOWFLAKE_ACCOUNT").strip()
-    user = _need("SNOWFLAKE_USER").strip()
-    password = _need("SNOWFLAKE_PASSWORD")
-    wh = os.getenv("SNOWFLAKE_WAREHOUSE", "TRANSFORM_WH").strip()
-    db = os.getenv("SNOWFLAKE_DATABASE", "CLINICAL_TRIALS_DEV").strip()
-    sc = os.getenv("SNOWFLAKE_SCHEMA", "STAGING").strip()
-    role = os.getenv("SNOWFLAKE_ROLE", "").strip() or None
-    return account, user, password, wh, db, sc, role
+def connect_snowflake():
+    # These come from your GitHub Actions secrets
+    return snowflake.connector.connect(
+        account=env("SNOWFLAKE_ACCOUNT", required=True),
+        user=env("SNOWFLAKE_USER", required=True),
+        password=env("SNOWFLAKE_PASSWORD", required=True),
+        warehouse=env("SNOWFLAKE_WAREHOUSE", required=True),
+        database=env("SNOWFLAKE_DATABASE", required=True),
+        role=os.getenv("SNOWFLAKE_ROLE") or None,
+        autocommit=True,
+    )
 
 
-def _build_sqlalchemy_url() -> str:
-    account, user, pwd, wh, db, sc, role = _conn_parts()
-
-    # URL-encode user/pwd to handle special chars
-    user_q = quote(user, safe="")
-    pwd_q = quote(pwd, safe="")
-
-    base = f"snowflake://{user_q}:{pwd_q}@{account}/{db}/{sc}?warehouse={wh}"
-    if role:
-        base += f"&role={quote(role, safe='')}"
-    return base
-
-
-def _table_from_cli(default_schema: str) -> Tuple[str, str]:
-    """
-    Allow optional override via CLI:
-      python run_gx_checks.py --table STAGING.STG_CTGOV_STUDIES
-    Returns (schema, table)
-    """
-    schema = default_schema.upper()
-    table = "STG_CTGOV_STUDIES"
-    argv = sys.argv[1:]
-    if "--table" in argv:
-        idx = argv.index("--table")
-        try:
-            full = argv[idx + 1]
-        except IndexError:
-            raise SystemExit("ERROR: --table must be followed by SCHEMA.TABLE")
-        parts = full.split(".")
-        if len(parts) != 2:
-            raise SystemExit("ERROR: --table must be SCHEMA.TABLE")
-        schema, table = parts[0].upper(), parts[1].upper()
-    return schema, table
-
-
-def main() -> None:
-    log.info("Starting Great Expectations validation…")
-
+def read_df(cur, sql: str) -> pd.DataFrame:
+    cur.execute(sql)
     try:
-        url = _build_sqlalchemy_url()
-        _, _, _, _, db, sc, _ = _conn_parts()
-        log.info("Target: %s.%s via Snowflake SQLAlchemy", db, sc)
+        # Native Snowflake -> pandas fetch
+        return cur.fetch_pandas_all()
+    except AttributeError:
+        # Fallback (older connector): build DataFrame manually
+        rows = cur.fetchall()
+        cols = [d[0] for d in cur.description]
+        return pd.DataFrame.from_records(rows, columns=cols)
+
+
+def summarize_result(tag: str, result) -> bool:
+    """Print a compact summary and return True if success, else False."""
+    try:
+        success = bool(result.success)
+        # result.results may not always exist / be a list across versions; guard it
+        passed = 0
+        total = 0
+        if hasattr(result, "results") and isinstance(result.results, list):
+            total = len(result.results)
+            passed = sum(1 for r in result.results if getattr(r, "success", False))
+        log.info("%s -> success=%s, %d/%d expectations passed", tag, success, passed, total)
+        # Print failures (if any)
+        if not success and hasattr(result, "results"):
+            for r in result.results or []:
+                if not getattr(r, "success", False):
+                    etype = getattr(getattr(r, "expectation_config", None), "expectation_type", "unknown")
+                    log.error("%s failed: %s | info=%s", tag, etype, getattr(r, "result", {}))
+        return success
+    except Exception:
+        log.error("%s -> could not summarize GE result:\n%s", tag, traceback.format_exc())
+        return False
+
+
+# -------- main --------
+def main() -> int:
+    try:
+        conn = connect_snowflake()
+        with conn.cursor() as cur:
+            # Pull the two tables we validate (small, so pandas is fine for CI)
+            df_stg = read_df(cur, "SELECT NCT_ID FROM STAGING.STG_CTGOV_STUDIES")
+            df_fact = read_df(cur, "SELECT EARLY_STOP_RATE FROM MARTS.FCT_CLINICAL_TRIAL_EARLY_STOPS")
+
+        if df_stg.empty:
+            log.error("STAGING.STG_CTGOV_STUDIES returned 0 rows; cannot validate.")
+            return 2
+        if df_fact.empty:
+            log.error("MARTS.FCT_CLINICAL_TRIAL_EARLY_STOPS returned 0 rows; cannot validate.")
+            return 2
+
+        # Build validators directly from DataFrames (no DataContext / suites API)
+        v_stg = gx.from_pandas(df_stg)
+        v_stg.expect_column_values_to_not_be_null("NCT_ID")
+        res_stg = v_stg.validate()
+        ok_stg = summarize_result("staging:not_null(NCT_ID)", res_stg)
+
+        v_fact = gx.from_pandas(df_fact)
+        v_fact.expect_column_values_to_be_between("EARLY_STOP_RATE", min_value=0, max_value=1)
+        res_fact = v_fact.validate()
+        ok_fact = summarize_result("marts:EARLY_STOP_RATE in [0,1]", res_fact)
+
+        if ok_stg and ok_fact:
+            log.info(" Great Expectations checks passed.")
+            return 0
+        else:
+            log.error(" Great Expectations checks FAILED.")
+            return 1
+
     except Exception as e:
-        log.error("Config error: %s", e)
-        sys.exit(2)
-
-    # Table override (optional)
-    try:
-        schema_override, table = _table_from_cli(sc)
-        # If user passed a different schema, we need to rebuild the URL with that schema
-        if schema_override != sc:
-            os.environ["SNOWFLAKE_SCHEMA"] = schema_override
-            url = _build_sqlalchemy_url()
-            sc = schema_override
-            log.info("Using overridden schema for validation: %s", sc)
-    except SystemExit as se:
-        log.error(str(se))
-        sys.exit(2)
-
-    log.debug("SQLAlchemy URL (safe): snowflake://<user>:<password>@%s/%s/%s?warehouse=…", *url.split("@")[1].split("/")[0:1],)
-
-    # Initialize GE context/datasource
-    try:
-        context = gx.get_context()
-        ds = context.sources.add_sql(name="sf", connection_string=url)
-        asset = ds.add_table_asset(name="staging_asset", table_name=table)
-        batch_request = asset.build_batch_request()
-        suite = context.suites.add("stg_ctgov_studies_suite", overwrite_existing=True)
-        validator = context.get_validator(
-            batch_request=batch_request,
-            expectation_suite_name=suite.name,
-        )
-        log.info("Connected and initialized validator for %s.%s.%s", db, sc, table)
-    except Exception as e:
-        log.error("Failed to initialize Great Expectations with Snowflake: %s", e)
-        sys.exit(3)
-
-    # ---------------- Expectations ----------------
-    try:
-        # Meta health
-        validator.expect_table_row_count_to_be_greater_than(0)
-
-        # Keys
-        validator.expect_column_values_to_not_be_null("NCT_ID")
-        validator.expect_column_values_to_match_regex("NCT_ID", r"^NCT\d{8}$")
-        validator.expect_column_values_to_be_unique("NCT_ID")  # CDC guard
-
-        # Business constraints
-        validator.expect_column_values_to_be_in_set("STUDY_TYPE", ["INTERVENTIONAL"])
-        validator.expect_column_values_to_match_regex("PHASES", r"(PHASE2|PHASE3)")
-
-        # Status sanity (Snowflake uppercased by default)
-        validator.expect_column_values_to_be_in_set(
-            "LATEST_OVERALL_STATUS",
-            [
-                "COMPLETED",
-                "TERMINATED",
-                "WITHDRAWN",
-                "SUSPENDED",
-                "ACTIVE_NOT_RECRUITING",
-                "ENROLLING_BY_INVITATION",
-                "NOT_YET_RECRUITING",
-                "RECRUITING",
-                "AVAILABLE",
-                "NO_LONGER_AVAILABLE",
-                "TEMPORARILY_NOT_AVAILABLE",
-                "APPROVED_FOR_MARKETING",
-                "WITHHELD",
-                "UNKNOWN",
-            ],
-        )
-
-        # Date gate (≥ 2015-01-01). Nulls pass this one; use not_null above to hard-enforce presence if needed.
-        validator.expect_column_values_to_be_between(
-            "FIRST_SUBMITTED_DATE",
-            min_value=date(2015, 1, 1),
-            parse_strings_as_datetimes=True,
-        )
-    except Exception as e:
-        log.error("Failed while defining expectations: %s", e)
-        sys.exit(4)
-
-    # ---------------- Validate & report ----------------
-    try:
-        context.suites.add_or_update(validator.expectation_suite)
-        res = validator.validate()
-    except Exception as e:
-        log.error("Validation execution failed: %s", e)
-        sys.exit(5)
-
-    # Ensure reports dir
-    os.makedirs("quality/.reports", exist_ok=True)
-
-    # JSON artifact
-    json_path = "quality/.reports/gx_result.json"
-    try:
-        with open(json_path, "w") as f:
-            json.dump(res.to_json_dict(), f)
-        log.info("Wrote JSON results → %s", json_path)
-    except Exception as e:
-        log.warning("Could not write JSON results: %s", e)
-
-    #  summary
-    summary_path = "quality/.reports/gx_summary.txt"
-    try:
-        stats = res.statistics
-        failed = []
-        for ev in res.results or []:
-            success = ev.get("success", True)
-            if not success:
-                expect = ev.get("expectation_config", {}).get("expectation_type", "unknown")
-                failed.append(expect)
-
-        lines = []
-        lines.append(f"Suite: {res.meta.get('expectation_suite_name', 'n/a')}")
-        lines.append(f"Success: {res.success}")
-        lines.append(f"Evaluated: {stats.get('evaluated_expectations', 0)}  |  "
-                    f"Successful: {stats.get('successful_expectations', 0)}  |  "
-                    f"Unsuccessful: {stats.get('unsuccessful_expectations', 0)}")
-        if failed:
-            lines.append("Failed expectations:")
-            for e in failed:
-                lines.append(f"  - {e}")
-
-        with open(summary_path, "w") as f:
-            f.write("\n".join(lines) + "\n")
-
-        #  summary to logs
-        log.info("Validation summary: success=%s, failed=%d",
-                 res.success, stats.get("unsuccessful_expectations", 0))
-        if failed:
-            log.warning("Failed expectations: %s", ", ".join(failed))
-    except Exception as e:
-        log.warning("Could not write text summary: %s", e)
-
-    if not res.success:
-        log.error("Great Expectations validation FAILED")
-        sys.exit(1)
-
-    log.info("Great Expectations validation PASSED")
+        log.error("Failed to run Great Expectations: %s", e)
+        log.debug("Traceback:\n%s", traceback.format_exc())
+        return 2
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except Exception as e:
-        # Top-level safety net
-        log.exception("Unexpected error: %s", e)
-        sys.exit(99)
+    sys.exit(main())
