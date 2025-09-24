@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 # Load .env if present (handy for local dev; no secrets in repo)
 load_dotenv()
 
-# ---------------- Logging ----------------
+
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
 logging.basicConfig(
     level=getattr(logging, LOG_LEVEL, logging.INFO),
@@ -22,7 +22,7 @@ logging.basicConfig(
 )
 log = logging.getLogger("ctgov")
 
-# ---------------- Config -----------------
+
 BASE_URL     = "https://clinicaltrials.gov/api/v2/studies"
 PAGE_SIZE    = int(os.getenv("CTGOV_PAGE_SIZE", "100"))      # 1..1000
 MAX_PAGES    = int(os.getenv("CTGOV_MAX_PAGES", "5"))        # 0 = all pages
@@ -127,7 +127,7 @@ def get_api_data() -> List[dict]:
         seen_tokens.add(next_tok)
         page_token = next_tok
 
-    log.info("✅ collected %d studies", len(studies))
+    log.info("collected %d studies", len(studies))
     return studies
 
 # -------------- Secrets / Snowflake I/O ------------

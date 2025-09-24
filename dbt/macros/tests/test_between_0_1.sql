@@ -1,6 +1,4 @@
-{% test ctgov_between_0_1(model, column_name) %}
+-- Fails if any row violates the rule
 select *
-from {{ model }}
-where {{ column_name }} is not null
-  and ({{ column_name }} < 0 or {{ column_name }} > 1)
-{% endtest %}
+from {{ ref('fct_clinical_trial_early_stops') }}
+where early_stop_rate < 0 or early_stop_rate > 1

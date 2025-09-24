@@ -1,1 +1,10 @@
+version: 2
 
+sources:
+  - name: raw
+    schema: RAW
+    description: "Landing schema with raw JSON from ClinicalTrials.gov"
+    tables:
+      - name: ctgov_studies
+        identifier: RAW_CTGOV_STUDIES
+        description: "Landing table for raw CTGov studies JSON"

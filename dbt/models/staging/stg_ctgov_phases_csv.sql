@@ -1,4 +1,3 @@
--- dbt/models/staging/stg_ctgov_phases_csv.sql
 {{ config(materialized='view') }}
 
 with base as (

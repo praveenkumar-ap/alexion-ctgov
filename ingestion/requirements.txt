@@ -3,3 +3,7 @@ snowflake-connector-python>=3.10.0
 python-dotenv>=1.0.1
 dbt-core==1.8.*
 dbt-snowflake==1.8.*
+boto3
+great_expectations==0.18.13
+snowflake-sqlalchemy>=1.6.0
+sqlalchemy>=2.0.0

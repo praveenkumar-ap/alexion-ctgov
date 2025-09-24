@@ -1,4 +1,3 @@
--- dbt/models/marts/fct_clinical_trial_early_stops.sql
 {{ config(materialized='table') }}
 
 with base as (
@@ -19,12 +18,12 @@ flags as (
 
 select
   sponsor_class,
-  sum(is_early_stop)                                       as early_stop_trials,
-  sum(is_closed)                                           as closed_trials,
+  sum(is_early_stop) as early_stop_trials,
+  sum(is_closed) as closed_trials,
   case
     when sum(is_closed) = 0 then 0
     else (1.0 * sum(is_early_stop)) / sum(is_closed)
-  end                                                     as early_stop_rate
+  end  as early_stop_rate
 from flags
 group by 1
 order by 1

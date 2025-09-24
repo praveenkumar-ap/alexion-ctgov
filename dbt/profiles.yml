@@ -11,3 +11,4 @@ ctgov:
       warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'TRANSFORM_WH') }}"
       schema: "{{ env_var('SNOWFLAKE_SCHEMA', 'RAW') }}"
       client_session_keep_alive: false
+      threads: 4
